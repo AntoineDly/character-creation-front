@@ -1,5 +1,5 @@
-import axios, {InternalAxiosRequestConfig} from "axios";
-import store from "../store";
+import axios, { InternalAxiosRequestConfig } from "axios";
+import store from "@/store";
 
 const baseAxiosInstanceConfig = {
   baseURL: "http://127.0.0.1:8000/api",
@@ -29,7 +29,4 @@ authenticatedAxiosInstance.interceptors.request.use(
   },
 );
 
-export default {
-  authenticatedAxiosInstance,
-  unauthenticatedAxiosInstance,
-};
+export { authenticatedAxiosInstance, unauthenticatedAxiosInstance };

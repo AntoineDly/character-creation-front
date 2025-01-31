@@ -1,34 +1,21 @@
 <template>
-  <button @click="login">Connexion</button>
-  <button @click="character">Character</button>
-  <p>Page principal {{ response }}</p>
+  <button @click="callLogin">Connexion</button>
+  <button @click="callGetCharacter">Character</button>
+  <p>Page principal {{ character }}</p>
 </template>
 
 <script setup lang="ts">
-import axios from "axios";
 import { ref } from "vue";
+import { login } from "@/services/auth.service";
+import { getCharacter } from "@/services/character.service";
 
-const response = ref("");
-const config = ref();
+const character = ref("");
 
-async function login() {
-  const response = await axios.post("http://127.0.0.1:8000/api/login", {
-    email: "myster.gryffus@gmail.com",
-    password: "test123",
-  });
-  const token = response.data.data.token;
-  config.value = {
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-  };
+async function callLogin() {
+  await login("myster.gryffus@gmail.com", "test123");
 }
-
-async function character() {
-  const data = await axios.get(
-    "http://127.0.0.1:8000/api/characters/a5011d8a-de24-4e8c-91cb-91edaa8b6fa7/with_linked_items",
-    config.value,
-  );
-  response.value = data.data.data;
+async function callGetCharacter() {
+  const response = await getCharacter("a5011d8a-de24-4e8c-91cb-91edaa8b6fa7");
+  character.value = response.data;
 }
 </script>
