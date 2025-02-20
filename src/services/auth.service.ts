@@ -1,13 +1,14 @@
 import { unauthenticatedAxiosInstance } from "@/config/axios";
-import store from "@/store";
+import { useAuthStore } from "@/store/authStore";
 
 async function login(email: string, password: string) {
+  const authStore = useAuthStore();
   const response = await unauthenticatedAxiosInstance.post("/login", {
     email: email,
     password: password,
   });
   const token = response.data.data.token;
-  await store.dispatch("login", token);
+  authStore.setToken(token);
 }
 
 export { login };

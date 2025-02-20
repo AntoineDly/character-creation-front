@@ -1,5 +1,5 @@
 import axios, { InternalAxiosRequestConfig } from "axios";
-import store from "@/store";
+import { useAuthStore } from "@/store/authStore";
 
 const baseAxiosInstanceConfig = {
   baseURL: "http://127.0.0.1:8000/api",
@@ -13,9 +13,12 @@ const authenticatedAxiosInstance = axios.create(baseAxiosInstanceConfig);
 const unauthenticatedAxiosInstance = axios.create(baseAxiosInstanceConfig);
 
 const setAuthorizationHeader = (config: InternalAxiosRequestConfig) => {
-  const token = store.getters.authToken;
-  if (token && !config.headers?.Authorization) {
-    config.headers["Authorization"] = `Bearer ${token}`;
+  const authStore = useAuthStore();
+  if (!authStore.isAuthenticated()) {
+    return Promise.reject(new Error("Unauthenticated"));
+  }
+  if (!config.headers?.Authorization) {
+    config.headers["Authorization"] = `Bearer ${authStore.token}`;
   }
   return config;
 };
