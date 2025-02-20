@@ -1,5 +1,5 @@
 import { unauthenticatedAxiosInstance } from "@/config/axios";
-import { useAuthStore } from "@/store/authStore";
+import { useAuthStore } from "./authStore";
 
 async function login(email: string, password: string) {
   const authStore = useAuthStore();

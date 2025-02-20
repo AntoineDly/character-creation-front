@@ -1,5 +1,5 @@
 import axios, { InternalAxiosRequestConfig } from "axios";
-import { useAuthStore } from "@/store/authStore";
+import { useAuthStore } from "@/pages/Auth/authStore";
 
 const baseAxiosInstanceConfig = {
   baseURL: "http://127.0.0.1:8000/api",
@@ -14,7 +14,7 @@ const unauthenticatedAxiosInstance = axios.create(baseAxiosInstanceConfig);
 
 const setAuthorizationHeader = (config: InternalAxiosRequestConfig) => {
   const authStore = useAuthStore();
-  if (!authStore.isAuthenticated()) {
+  if (!authStore.isAuthenticated) {
     return Promise.reject(new Error("Unauthenticated"));
   }
   if (!config.headers?.Authorization) {
