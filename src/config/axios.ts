@@ -17,9 +17,7 @@ const setAuthorizationHeader = (config: InternalAxiosRequestConfig) => {
   if (!authStore.isAuthenticated) {
     return Promise.reject(new Error("Unauthenticated"));
   }
-  if (!config.headers?.Authorization) {
-    config.headers["Authorization"] = `Bearer ${authStore.token}`;
-  }
+  config.headers["Authorization"] = `Bearer ${authStore.token}`;
   return config;
 };
 

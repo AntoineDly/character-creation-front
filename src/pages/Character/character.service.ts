@@ -7,4 +7,11 @@ async function getCharacter(characterId: string) {
   return response.data;
 }
 
-export { getCharacter };
+async function getCharactersWithGame() {
+  const response = await authenticatedAxiosInstance.get(
+    "/characters/with_game",
+  );
+  return response.data;
+}
+
+export { getCharacter, getCharactersWithGame };

@@ -1,4 +1,7 @@
-import { unauthenticatedAxiosInstance } from "@/config/axios";
+import {
+  authenticatedAxiosInstance,
+  unauthenticatedAxiosInstance,
+} from "@/config/axios";
 import { useAuthStore } from "./authStore";
 
 async function login(email: string, password: string) {
@@ -11,4 +14,10 @@ async function login(email: string, password: string) {
   authStore.setToken(token);
 }
 
-export { login };
+async function logout() {
+  const authStore = useAuthStore();
+  await authenticatedAxiosInstance.post("/logout");
+  authStore.clearToken();
+}
+
+export { login, logout };
