@@ -11,7 +11,7 @@ export const characterRoutes: RouteRecordRaw[] = [
     meta: { requiresAuth: true },
   },
   {
-    path: "/characters/:characterId(\\\\d+)",
+    path: "/characters/:characterId",
     component: CharacterPage,
     name: RouteNameCharacterEnum.CHARACTER,
     meta: { requiresAuth: true },
