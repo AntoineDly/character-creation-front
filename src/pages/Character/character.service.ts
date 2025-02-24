@@ -1,11 +1,16 @@
 import { authenticatedAxiosInstance } from "@/config/axios";
-import { CharacterWithGame } from "./character.interface";
+import {
+  CharacterWithGame,
+  CharacterWithLinkedItems,
+} from "./character.interface";
 
-async function getCharacter(characterId: string) {
+async function getCharacter(
+  characterId: string,
+): Promise<CharacterWithLinkedItems> {
   const response = await authenticatedAxiosInstance.get(
     "/characters/" + characterId + "/with_linked_items",
   );
-  return response.data;
+  return response.data.data;
 }
 
 async function getCharactersWithGame(): Promise<CharacterWithGame[]> {
