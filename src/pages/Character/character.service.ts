@@ -1,4 +1,5 @@
 import { authenticatedAxiosInstance } from "@/config/axios";
+import { CharacterWithGame } from "./character.interface";
 
 async function getCharacter(characterId: string) {
   const response = await authenticatedAxiosInstance.get(
@@ -7,11 +8,11 @@ async function getCharacter(characterId: string) {
   return response.data;
 }
 
-async function getCharactersWithGame() {
+async function getCharactersWithGame(): Promise<CharacterWithGame[]> {
   const response = await authenticatedAxiosInstance.get(
     "/characters/with_game",
   );
-  return response.data;
+  return response.data.data;
 }
 
 export { getCharacter, getCharactersWithGame };

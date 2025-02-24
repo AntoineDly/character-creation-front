@@ -5,12 +5,14 @@ import { dashboardRoutes } from "@/pages/Dashboard/routes";
 import { loginRoutes } from "@/pages/Auth/routes";
 import { RouteNameAuthEnum } from "@/router/routes.enum";
 import { notFoundRoutes } from "@/pages/NotFound/routes";
+import { characterRoutes } from "@/pages/Character/routes";
 
 const routes = [
   ...homeRoutes,
   ...dashboardRoutes,
   ...loginRoutes,
   ...notFoundRoutes,
+  ...characterRoutes,
 ];
 
 const router = createRouter({

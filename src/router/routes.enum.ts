@@ -13,3 +13,8 @@ export enum RouteNameDashboardEnum {
 export enum RouteNameNotFoundEnum {
   NOT_FOUND = "NotFound",
 }
+
+export enum RouteNameCharacterEnum {
+  CHARACTERS = "Characters",
+  CHARACTER = "Character",
+}
