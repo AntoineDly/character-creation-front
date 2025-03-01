@@ -1,9 +1,17 @@
 <template>
   <h1>Dashboard Page</h1>
-  <router-link :to="{ name: RouteNameCharacterEnum.CHARACTERS }"
-    >Liste des personnages</router-link
-  >
+  <nav>
+    <router-link :to="{ name: RouteNameCharacterEnum.CHARACTERS }"
+      >Liste des personnages</router-link
+    >
+    <router-link :to="{ name: RouteNameGameEnum.GAMES }"
+      >Liste des jeux</router-link
+    >
+  </nav>
 </template>
 <script setup lang="ts">
-import { RouteNameCharacterEnum } from "@/router/routes.enum";
+import {
+  RouteNameCharacterEnum,
+  RouteNameGameEnum,
+} from "@/router/routes.enum";
 </script>

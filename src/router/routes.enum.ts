@@ -18,3 +18,8 @@ export enum RouteNameCharacterEnum {
   CHARACTERS = "Characters",
   CHARACTER = "Character",
 }
+
+export enum RouteNameGameEnum {
+  GAMES = "Games",
+  GAME = "Game",
+}

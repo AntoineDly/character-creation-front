@@ -1,13 +1,13 @@
 import { GameDtoInterface } from "@/pages/Game/game.interface";
-import { CategoryForCharacterDto } from "@/pages/Category/category.interface";
+import { CategoryDtoInterface } from "@/pages/Category/category.interface";
 
-export interface CharacterWithGame {
+export interface CharacterWithGameInterface {
   id: string;
   gameDto: GameDtoInterface;
 }
 
-export interface CharacterWithLinkedItems {
+export interface CharacterWithLinkedItemsInterface {
   id: string;
   gameDto: GameDtoInterface;
-  categoryForCharacterDtos: CategoryForCharacterDto[];
+  categoryForCharacterDtos: CategoryDtoInterface[];
 }

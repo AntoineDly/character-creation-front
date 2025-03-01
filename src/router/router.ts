@@ -1,5 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router";
 import { homeRoutes } from "@/pages/Home/routes";
+import { gameRoutes } from "@/pages/Game/routes";
 import { useAuthStore } from "@/pages/Auth/authStore";
 import { dashboardRoutes } from "@/pages/Dashboard/routes";
 import { loginRoutes } from "@/pages/Auth/routes";
@@ -13,6 +14,7 @@ const routes = [
   ...loginRoutes,
   ...notFoundRoutes,
   ...characterRoutes,
+  ...gameRoutes,
 ];
 
 const router = createRouter({

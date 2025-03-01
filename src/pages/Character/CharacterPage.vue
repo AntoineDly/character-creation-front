@@ -13,12 +13,12 @@
 <script setup lang="ts">
 import { onBeforeMount, ref, Ref } from "vue";
 import { getCharacter } from "./character.service";
-import { CharacterWithLinkedItems } from "./character.interface";
+import { CharacterWithLinkedItemsInterface } from "./character.interface";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
 const characterId: Ref<string> = ref(route.params.characterId as string);
-const character: Ref<CharacterWithLinkedItems> = ref({
+const character: Ref<CharacterWithLinkedItemsInterface> = ref({
   id: "",
   gameDto: {
     id: "",

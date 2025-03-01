@@ -16,10 +16,10 @@
 <script setup lang="ts">
 import { onBeforeMount, ref, Ref } from "vue";
 import { getCharactersWithGame } from "./character.service";
-import { CharacterWithGame } from "./character.interface";
+import { CharacterWithGameInterface } from "./character.interface";
 import { RouteNameCharacterEnum } from "@/router/routes.enum";
 
-const characters: Ref<CharacterWithGame[]> = ref([]);
+const characters: Ref<CharacterWithGameInterface[]> = ref([]);
 
 onBeforeMount(async () => {
   characters.value = await getCharactersWithGame();
