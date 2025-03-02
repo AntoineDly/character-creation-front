@@ -3,13 +3,11 @@ import {
   unauthenticatedAxiosInstance,
 } from "@/config/axios";
 import { useAuthStore } from "./authStore";
+import { LoginFormInterface } from "./auth.interface";
 
-async function login(email: string, password: string) {
+async function login(data: LoginFormInterface) {
   const authStore = useAuthStore();
-  const response = await unauthenticatedAxiosInstance.post("/login", {
-    email: email,
-    password: password,
-  });
+  const response = await unauthenticatedAxiosInstance.post("/login", data);
   const token = response.data.data.token;
   authStore.setToken(token);
 }

@@ -7,6 +7,7 @@ import { loginRoutes } from "@/pages/Auth/routes";
 import { RouteNameAuthEnum } from "@/router/routes.enum";
 import { notFoundRoutes } from "@/pages/NotFound/routes";
 import { characterRoutes } from "@/pages/Character/routes";
+import { categoryRoutes } from "@/pages/Category/routes";
 
 const routes = [
   ...homeRoutes,
@@ -15,6 +16,7 @@ const routes = [
   ...notFoundRoutes,
   ...characterRoutes,
   ...gameRoutes,
+  ...categoryRoutes,
 ];
 
 const router = createRouter({

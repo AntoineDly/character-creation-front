@@ -1,5 +1,6 @@
 import { authenticatedAxiosInstance } from "@/config/axios";
 import {
+  AssociateCategoryFormInterface,
   GameDtoInterface,
   GameWithCategoriesAndItemsDtoInterface,
 } from "@/pages/Game/game.interface";
@@ -18,4 +19,10 @@ async function getGame(
   return response.data.data;
 }
 
-export { getGames, getGame };
+async function associateCategory(
+  data: AssociateCategoryFormInterface,
+): Promise<void> {
+  await authenticatedAxiosInstance.post("categories/associate_game", data);
+}
+
+export { getGames, getGame, associateCategory };

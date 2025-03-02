@@ -12,3 +12,8 @@ export interface GameWithCategoriesAndItemsDtoInterface {
   categoryDtos: CategoryDtoInterface[];
   itemDtos: ItemDtoInterface[];
 }
+
+export interface AssociateCategoryFormInterface {
+  gameId: string;
+  categoryId: string;
+}

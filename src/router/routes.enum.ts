@@ -22,4 +22,10 @@ export enum RouteNameCharacterEnum {
 export enum RouteNameGameEnum {
   GAMES = "Games",
   GAME = "Game",
+  ASSOCIATE_CATEGORY = "AssociateCategory",
+}
+
+export enum RouteNameCategoryEnum {
+  CATEGORIES = "Categories",
+  CREATE_CATEGORY = "CreateCategory",
 }
