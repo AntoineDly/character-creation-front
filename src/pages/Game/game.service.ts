@@ -14,7 +14,7 @@ async function getGame(
   gameId: string,
 ): Promise<GameWithCategoriesAndItemsDtoInterface> {
   const response = await authenticatedAxiosInstance.get(
-    "/games/" + gameId + "/with_categories_and_items",
+    "/games/" + gameId + "/with_categories_and_playable_items",
   );
   return response.data.data;
 }

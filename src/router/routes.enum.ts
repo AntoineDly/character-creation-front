@@ -4,6 +4,7 @@ export enum RouteNameHomeEnum {
 
 export enum RouteNameAuthEnum {
   LOGIN = "Login",
+  REGISTER = "Register",
 }
 
 export enum RouteNameDashboardEnum {
