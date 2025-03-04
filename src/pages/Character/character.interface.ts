@@ -11,3 +11,7 @@ export interface CharacterWithLinkedItemsInterface {
   gameDto: GameDtoInterface;
   categoryForCharacterDtos: CategoryDtoInterface[];
 }
+
+export interface CreateCharacterFormInterface {
+  gameId: string;
+}

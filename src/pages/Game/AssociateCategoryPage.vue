@@ -2,9 +2,8 @@
   <template v-if="isLoaded">
     <h1>Associer une catégorie</h1>
     <form @submit.prevent="handleSubmit">
-      <label for="name">Catégorie</label>
-
-      <select v-model="formData.categoryId">
+      <label for="categories">Catégorie</label>
+      <select id="categories" v-model="formData.categoryId">
         <option disabled value="">Choisissez une catégorie</option>
         <option
           v-for="category in categories"

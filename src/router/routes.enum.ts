@@ -18,12 +18,14 @@ export enum RouteNameNotFoundEnum {
 export enum RouteNameCharacterEnum {
   CHARACTERS = "Characters",
   CHARACTER = "Character",
+  CREATE_CHARACTER = "CreateCharacter",
 }
 
 export enum RouteNameGameEnum {
   GAMES = "Games",
   GAME = "Game",
   ASSOCIATE_CATEGORY = "AssociateCategory",
+  CREATE_GAME = "CreateGame",
 }
 
 export enum RouteNameCategoryEnum {

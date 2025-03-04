@@ -1,7 +1,7 @@
 <template>
   <h1>Créer une catégorie</h1>
   <form @submit.prevent="handleSubmit">
-    <label for="name">Nom</label>
+    <label for="name">Nom de catégorie</label>
     <input
       id="name"
       type="text"

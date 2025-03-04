@@ -2,6 +2,7 @@ import { authenticatedAxiosInstance } from "@/config/axios";
 import {
   CharacterWithGameInterface,
   CharacterWithLinkedItemsInterface,
+  CreateCharacterFormInterface,
 } from "./character.interface";
 
 async function getCharacter(
@@ -20,4 +21,10 @@ async function getCharactersWithGame(): Promise<CharacterWithGameInterface[]> {
   return response.data.data;
 }
 
-export { getCharacter, getCharactersWithGame };
+async function createCharacter(
+  data: CreateCharacterFormInterface,
+): Promise<void> {
+  await authenticatedAxiosInstance.post("/characters", data);
+}
+
+export { getCharacter, getCharactersWithGame, createCharacter };

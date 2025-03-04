@@ -17,3 +17,8 @@ export interface AssociateCategoryFormInterface {
   gameId: string;
   categoryId: string;
 }
+
+export interface CreateGameFormInterface {
+  name: string;
+  visibleForAll: boolean;
+}

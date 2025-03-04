@@ -1,5 +1,11 @@
 <template>
   <template v-if="isLoaded">
+    <router-link
+      :to="{
+        name: RouteNameGameEnum.CREATE_GAME,
+      }"
+      >Créer un jeu</router-link
+    >
     <h1>Liste des jeux</h1>
     <div v-for="game in games" :key="game.id">
       {{ game.id }}

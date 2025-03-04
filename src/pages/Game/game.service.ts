@@ -1,9 +1,10 @@
 import { authenticatedAxiosInstance } from "@/config/axios";
 import {
   AssociateCategoryFormInterface,
+  CreateGameFormInterface,
   GameDtoInterface,
   GameWithCategoriesAndItemsDtoInterface,
-} from "@/pages/Game/game.interface";
+} from "./game.interface";
 
 async function getGames(): Promise<GameDtoInterface[]> {
   const response = await authenticatedAxiosInstance.get("/games");
@@ -25,4 +26,8 @@ async function associateCategory(
   await authenticatedAxiosInstance.post("categories/associate_game", data);
 }
 
-export { getGames, getGame, associateCategory };
+async function createGame(data: CreateGameFormInterface): Promise<void> {
+  await authenticatedAxiosInstance.post("/games", data);
+}
+
+export { getGames, getGame, associateCategory, createGame };
