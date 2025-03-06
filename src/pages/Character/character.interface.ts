@@ -1,5 +1,9 @@
 import { GameDtoInterface } from "@/pages/Game/game.interface";
-import { CategoryDtoInterface } from "@/pages/Category/category.interface";
+import { CategoryForCharacterDtoInterface } from "@/pages/Category/category.interface";
+
+export interface CharacterDtoInterface {
+  id: string;
+}
 
 export interface CharacterWithGameDtoInterface {
   id: string;
@@ -9,7 +13,7 @@ export interface CharacterWithGameDtoInterface {
 export interface CharacterWithLinkedItemsDtoInterface {
   id: string;
   gameDto: GameDtoInterface;
-  categoryForCharacterDtos: CategoryDtoInterface[];
+  categoryForCharacterDtos: CategoryForCharacterDtoInterface[];
 }
 
 export interface CreateCharacterFormInterface {

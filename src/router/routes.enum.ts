@@ -47,3 +47,8 @@ export enum RouteNamePlayableItemEnum {
   PLAYABLE_ITEMS = "PlayableItems",
   CREATE_PLAYABLE_ITEM = "CreatePlayableItem",
 }
+
+export enum RouteNameLinkedItemEnum {
+  LINKED_ITEMS = "LinkedItems",
+  CREATE_LINKED_ITEM = "CreateLinkedItem",
+}

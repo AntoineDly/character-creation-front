@@ -1,7 +1,7 @@
 import { RouteRecordRaw } from "vue-router";
 import { RouteNamePlayableItemEnum } from "@/router/routes.enum";
 import PlayableItemsPage from "./PlayableItemsPage.vue";
-import CreatePlayableItemPage from ".//CreatePlayableItemPage.vue";
+import CreatePlayableItemPage from "./CreatePlayableItemPage.vue";
 
 export const playableItemRoutes: RouteRecordRaw[] = [
   {

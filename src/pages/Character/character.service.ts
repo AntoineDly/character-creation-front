@@ -1,9 +1,15 @@
 import { authenticatedAxiosInstance } from "@/config/axios";
 import {
+  CharacterDtoInterface,
   CharacterWithGameDtoInterface,
   CharacterWithLinkedItemsDtoInterface,
   CreateCharacterFormInterface,
 } from "./character.interface";
+
+async function getCharacters(): Promise<CharacterDtoInterface[]> {
+  const response = await authenticatedAxiosInstance.get("/characters");
+  return response.data.data;
+}
 
 async function getCharacter(
   characterId: string,
@@ -29,4 +35,4 @@ async function createCharacter(
   await authenticatedAxiosInstance.post("/characters", data);
 }
 
-export { getCharacter, getCharactersWithGame, createCharacter };
+export { getCharacters, getCharacter, getCharactersWithGame, createCharacter };

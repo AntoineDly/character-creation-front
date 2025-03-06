@@ -11,6 +11,7 @@ import { categoryRoutes } from "@/pages/Category/routes";
 import { componentRoutes } from "@/pages/Component/routes";
 import { itemRoutes } from "@/pages/Item/routes";
 import { playableItemRoutes } from "@/pages/PlayableItem/routes";
+import { linkedItemRoutes } from "@/pages/LinkedItem/routes";
 
 const routes = [
   ...homeRoutes,
@@ -23,6 +24,7 @@ const routes = [
   ...componentRoutes,
   ...itemRoutes,
   ...playableItemRoutes,
+  ...linkedItemRoutes,
 ];
 
 const router = createRouter({

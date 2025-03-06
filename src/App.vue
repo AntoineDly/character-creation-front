@@ -32,6 +32,9 @@
     <router-link :to="{ name: RouteNamePlayableItemEnum.PLAYABLE_ITEMS }"
       >Liste des objets jouables</router-link
     >
+    <router-link :to="{ name: RouteNameLinkedItemEnum.LINKED_ITEMS }"
+      >Liste des objets liés</router-link
+    >
     <button @click="handleLogout">Se déconnecter</button>
   </nav>
   <main>
@@ -49,6 +52,7 @@ import {
   RouteNameGameEnum,
   RouteNameHomeEnum,
   RouteNameItemEnum,
+  RouteNameLinkedItemEnum,
   RouteNamePlayableItemEnum,
 } from "@/router/routes.enum";
 import router from "@/router/router";

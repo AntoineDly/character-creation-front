@@ -9,6 +9,13 @@
       :key="category.id"
     >
       {{ category.name }}
+      <p>Objets liés</p>
+      <div
+        v-for="linkedItemForCharacterDto in category.linkedItemForCharacterDtos"
+        :key="linkedItemForCharacterDto.id"
+      >
+        {{ linkedItemForCharacterDto.id }}
+      </div>
     </div>
   </template>
   <template v-else>
