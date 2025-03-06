@@ -3,7 +3,7 @@ import {
   AssociateCategoryFormInterface,
   CreateGameFormInterface,
   GameDtoInterface,
-  GameWithCategoriesAndItemsDtoInterface,
+  GameWithCategoriesAndPlayableItemsDtoInterface,
 } from "./game.interface";
 
 async function getGames(): Promise<GameDtoInterface[]> {
@@ -13,7 +13,7 @@ async function getGames(): Promise<GameDtoInterface[]> {
 
 async function getGame(
   gameId: string,
-): Promise<GameWithCategoriesAndItemsDtoInterface> {
+): Promise<GameWithCategoriesAndPlayableItemsDtoInterface> {
   const response = await authenticatedAxiosInstance.get(
     "/games/" + gameId + "/with_categories_and_playable_items",
   );

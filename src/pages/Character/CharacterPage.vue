@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import { onBeforeMount, ref, Ref } from "vue";
 import { getCharacter } from "./character.service";
-import { CharacterWithLinkedItemsInterface } from "./character.interface";
+import { CharacterWithLinkedItemsDtoInterface } from "./character.interface";
 import { useRoute } from "vue-router";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 
@@ -26,7 +26,7 @@ const isLoaded: Ref<boolean> = ref(false);
 const route = useRoute();
 
 const characterId: Ref<string> = ref(route.params.characterId as string);
-const character: Ref<CharacterWithLinkedItemsInterface> = ref({
+const character: Ref<CharacterWithLinkedItemsDtoInterface> = ref({
   id: "",
   gameDto: {
     id: "",

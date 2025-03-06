@@ -1,15 +1,20 @@
 <template>
-  <h1>Créer une catégorie</h1>
-  <form @submit.prevent="handleSubmit">
-    <label for="name">Nom de catégorie</label>
-    <input
-      id="name"
-      type="text"
-      placeholder="Nom de catégorie"
-      v-model="formData.name"
-    />
-    <input type="submit" value="Créer une catégorie" />
-  </form>
+  <template v-if="isLoaded">
+    <h1>Créer une catégorie</h1>
+    <form @submit.prevent="handleSubmit">
+      <label for="name">Nom de catégorie</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Nom de catégorie"
+        v-model="formData.name"
+      />
+      <input type="submit" value="Créer une catégorie" />
+    </form>
+  </template>
+  <template v-else>
+    <LoadingComponent />
+  </template>
 </template>
 <script setup lang="ts">
 import { useRouter } from "vue-router";
@@ -17,7 +22,9 @@ import { ref, Ref } from "vue";
 import { RouteNameCategoryEnum } from "@/router/routes.enum";
 import { CreateCategoryFormInterface } from "./category.interface";
 import { createCategory } from "./category.service";
+import LoadingComponent from "@/components/LoadingComponent.vue";
 
+const isLoaded: Ref<boolean> = ref(true);
 const router = useRouter();
 
 const formData: Ref<CreateCategoryFormInterface> = ref({
@@ -25,6 +32,7 @@ const formData: Ref<CreateCategoryFormInterface> = ref({
 });
 
 async function handleSubmit(): Promise<void> {
+  isLoaded.value = false;
   await createCategory(formData.value);
   await router.push({ name: RouteNameCategoryEnum.CATEGORIES });
 }

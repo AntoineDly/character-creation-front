@@ -8,6 +8,9 @@ import { RouteNameAuthEnum } from "@/router/routes.enum";
 import { notFoundRoutes } from "@/pages/NotFound/routes";
 import { characterRoutes } from "@/pages/Character/routes";
 import { categoryRoutes } from "@/pages/Category/routes";
+import { componentRoutes } from "@/pages/Component/routes";
+import { itemRoutes } from "@/pages/Item/routes";
+import { playableItemRoutes } from "@/pages/PlayableItem/routes";
 
 const routes = [
   ...homeRoutes,
@@ -17,6 +20,9 @@ const routes = [
   ...characterRoutes,
   ...gameRoutes,
   ...categoryRoutes,
+  ...componentRoutes,
+  ...itemRoutes,
+  ...playableItemRoutes,
 ];
 
 const router = createRouter({

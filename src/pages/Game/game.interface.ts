@@ -1,16 +1,16 @@
 import { CategoryDtoInterface } from "@/pages/Category/category.interface";
-import { ItemDtoInterface } from "@/pages/Item/item.interface";
+import { PlayableItemDtoInterface } from "@/pages/PlayableItem/playableItem.interface";
 
 export interface GameDtoInterface {
   id: string;
   name: string;
 }
 
-export interface GameWithCategoriesAndItemsDtoInterface {
+export interface GameWithCategoriesAndPlayableItemsDtoInterface {
   id: string;
   name: string;
   categoryDtos: CategoryDtoInterface[];
-  itemDtos: ItemDtoInterface[];
+  playableItemDtos: PlayableItemDtoInterface[];
 }
 
 export interface AssociateCategoryFormInterface {

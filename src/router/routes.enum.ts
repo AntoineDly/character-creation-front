@@ -32,3 +32,18 @@ export enum RouteNameCategoryEnum {
   CATEGORIES = "Categories",
   CREATE_CATEGORY = "CreateCategory",
 }
+
+export enum RouteNameComponentEnum {
+  COMPONENTS = "Components",
+  CREATE_COMPONENT = "CreateComponent",
+}
+
+export enum RouteNameItemEnum {
+  ITEMS = "Items",
+  CREATE_ITEM = "CreateItem",
+}
+
+export enum RouteNamePlayableItemEnum {
+  PLAYABLE_ITEMS = "PlayableItems",
+  CREATE_PLAYABLE_ITEM = "CreatePlayableItem",
+}

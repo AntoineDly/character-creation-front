@@ -47,6 +47,7 @@ onBeforeMount(async () => {
 });
 
 async function handleSubmit(): Promise<void> {
+  isLoaded.value = false;
   await associateCategory(formData.value);
   await router.push({
     name: RouteNameGameEnum.GAME,
