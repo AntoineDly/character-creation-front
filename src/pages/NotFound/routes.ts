@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
-import { RouteNameNotFoundEnum } from "@/router/routes.enum";
+import { RouteNameNotFoundEnum } from "@/router/router.enum";
 import NotFoundPage from "./NotFoundPage.vue";
 
 export const notFoundRoutes: RouteRecordRaw[] = [

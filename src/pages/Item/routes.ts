@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
-import { RouteNameItemEnum } from "@/router/routes.enum";
+import { RouteNameItemEnum } from "@/router/router.enum";
 import ItemsPage from "./ItemsPage.vue";
 import CreateItemPage from "./CreateItemPage.vue";
 

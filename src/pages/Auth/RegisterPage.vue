@@ -34,7 +34,7 @@
 <script setup lang="ts">
 import { register } from "./auth.service";
 import { useRouter } from "vue-router";
-import { RouteNameHomeEnum } from "@/router/routes.enum";
+import { RouteNameHomeEnum } from "@/router/router.enum";
 import { Ref, ref } from "vue";
 import { RegisterFormInterface } from "./auth.interface";
 import LoadingComponent from "@/components/LoadingComponent.vue";

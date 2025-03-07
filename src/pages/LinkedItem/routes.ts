@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
-import { RouteNameLinkedItemEnum } from "@/router/routes.enum";
+import { RouteNameLinkedItemEnum } from "@/router/router.enum";
 import LinkedItemsPage from "./LinkedItemsPage.vue";
 import CreateLinkedItemPage from "./CreateLinkedItemPage.vue";
 

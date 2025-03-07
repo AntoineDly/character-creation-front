@@ -4,7 +4,7 @@ import { useAuthStore } from "@/pages/Auth/authStore";
 import {
   RouteNameDashboardEnum,
   RouteNameHomeEnum,
-} from "@/router/routes.enum";
+} from "@/router/router.enum";
 
 export const homeRoutes: RouteRecordRaw[] = [
   {

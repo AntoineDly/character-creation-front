@@ -11,7 +11,7 @@
 </template>
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import { RouteNameComponentEnum } from "@/router/routes.enum";
+import { RouteNameComponentEnum } from "@/router/router.enum";
 import { createComponent } from "@/pages/Component/component.service";
 import { ref, Ref } from "vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";

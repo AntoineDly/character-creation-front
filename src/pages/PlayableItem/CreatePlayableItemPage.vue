@@ -25,7 +25,7 @@
 </template>
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import { RouteNamePlayableItemEnum } from "@/router/routes.enum";
+import { RouteNamePlayableItemEnum } from "@/router/router.enum";
 import { getItems } from "@/pages/Item/item.service";
 import { createPlayableItem } from "./playableItem.service";
 import LoadingComponent from "@/components/LoadingComponent.vue";

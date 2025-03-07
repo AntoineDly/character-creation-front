@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
 import DashboardPage from "./DashboardPage.vue";
-import { RouteNameDashboardEnum } from "@/router/routes.enum";
+import { RouteNameDashboardEnum } from "@/router/router.enum";
 
 export const dashboardRoutes: RouteRecordRaw[] = [
   {

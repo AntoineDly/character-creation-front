@@ -32,7 +32,7 @@ import { onBeforeMount, ref, Ref } from "vue";
 import { getGame } from "./game.service";
 import { GameWithCategoriesAndPlayableItemsDtoInterface } from "./game.interface";
 import { useRoute } from "vue-router";
-import { RouteNameGameEnum } from "@/router/routes.enum";
+import { RouteNameGameEnum } from "@/router/router.enum";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 
 const isLoaded: Ref<boolean> = ref(false);

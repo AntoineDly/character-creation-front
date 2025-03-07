@@ -52,3 +52,12 @@ export enum RouteNameLinkedItemEnum {
   LINKED_ITEMS = "LinkedItems",
   CREATE_LINKED_ITEM = "CreateLinkedItem",
 }
+
+export enum RouteNameParameterEnum {
+  PARAMETERS = "Parameters",
+  CREATE_PARAMETER = "CreateParameter",
+}
+
+export enum RouteNameComponentFieldEnum {
+  CREATE_COMPONENT_FIELD = "CreateComponentField",
+}

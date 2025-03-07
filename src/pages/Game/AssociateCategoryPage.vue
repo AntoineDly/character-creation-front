@@ -26,7 +26,7 @@ import { CategoryDtoInterface } from "@/pages/Category/category.interface";
 import { getCategories } from "@/pages/Category/category.service";
 import { useRoute, useRouter } from "vue-router";
 import { AssociateCategoryFormInterface } from "./game.interface";
-import { RouteNameGameEnum } from "@/router/routes.enum";
+import { RouteNameGameEnum } from "@/router/router.enum";
 import { associateCategory } from "./game.service";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 

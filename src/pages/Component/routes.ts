@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
-import { RouteNameComponentEnum } from "@/router/routes.enum";
+import { RouteNameComponentEnum } from "@/router/router.enum";
 import ComponentsPage from "./ComponentsPage.vue";
 import CreateComponentPage from "./CreateComponentPage.vue";
 

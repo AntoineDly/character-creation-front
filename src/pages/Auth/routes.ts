@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
 import LoginPage from "./LoginPage.vue";
-import { RouteNameAuthEnum } from "@/router/routes.enum";
+import { RouteNameAuthEnum } from "@/router/router.enum";
 import RegisterPage from "@/pages/Auth/RegisterPage.vue";
 
 export const loginRoutes: RouteRecordRaw[] = [

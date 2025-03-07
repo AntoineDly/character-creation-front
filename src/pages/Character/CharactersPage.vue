@@ -25,7 +25,7 @@
 import { onBeforeMount, ref, Ref } from "vue";
 import { getCharactersWithGame } from "./character.service";
 import { CharacterWithGameDtoInterface } from "./character.interface";
-import { RouteNameCharacterEnum } from "@/router/routes.enum";
+import { RouteNameCharacterEnum } from "@/router/router.enum";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 
 const isLoaded: Ref<boolean> = ref(false);

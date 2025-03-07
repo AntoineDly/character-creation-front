@@ -13,7 +13,7 @@
           {{ playableItem.id }}
         </option>
       </select>
-      <label for="character">Jeu</label>
+      <label for="character">Personnage</label>
       <select id="character" v-model="formData.characterId">
         <option disabled value="">Choisissez un personnage</option>
         <option
@@ -33,7 +33,7 @@
 </template>
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import { RouteNameLinkedItemEnum } from "@/router/routes.enum";
+import { RouteNameLinkedItemEnum } from "@/router/router.enum";
 import { getPlayableItems } from "@/pages/PlayableItem/playableItem.service";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 import { onBeforeMount, ref, Ref } from "vue";

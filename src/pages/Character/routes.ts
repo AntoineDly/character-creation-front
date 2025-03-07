@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
-import { RouteNameCharacterEnum } from "@/router/routes.enum";
+import { RouteNameCharacterEnum } from "@/router/router.enum";
 import CharactersPage from "./CharactersPage.vue";
 import CharacterPage from "./CharacterPage.vue";
 import CreateCharacterPage from "./CreateCharacterPage.vue";

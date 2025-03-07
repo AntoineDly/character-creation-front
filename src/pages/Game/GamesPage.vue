@@ -24,7 +24,7 @@
   </template>
 </template>
 <script setup lang="ts">
-import { RouteNameGameEnum } from "@/router/routes.enum";
+import { RouteNameGameEnum } from "@/router/router.enum";
 import { GameDtoInterface } from "./game.interface";
 import { onBeforeMount, ref, Ref } from "vue";
 import { getGames } from "./game.service";

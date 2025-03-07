@@ -1,22 +1,30 @@
 <template>
   <template v-if="isLoaded">
     <h1>Personnage</h1>
-    <p>Id : {{ character.id }}</p>
     <p>Jeu : {{ character.gameDto.name }}</p>
     <p>Catégories</p>
-    <div
-      v-for="category in character.categoryForCharacterDtos"
-      :key="category.id"
-    >
-      {{ category.name }}
-      <p>Objets liés</p>
-      <div
-        v-for="linkedItemForCharacterDto in category.linkedItemForCharacterDtos"
-        :key="linkedItemForCharacterDto.id"
+    <ul>
+      <li
+        v-for="category in character.categoryForCharacterDtos"
+        :key="category.id"
       >
-        {{ linkedItemForCharacterDto.id }}
-      </div>
-    </div>
+        {{ category.name }}
+        <p>Objets liés</p>
+        <ul>
+          <li
+            v-for="linkedItemForCharacterDto in category.linkedItemForCharacterDtos"
+            :key="linkedItemForCharacterDto.id"
+          >
+            <div
+              v-for="fieldDto in linkedItemForCharacterDto.fieldDtos"
+              :key="fieldDto.id"
+            >
+              {{ fieldDto.name }} : {{ fieldDto.value }}
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </template>
   <template v-else>
     <LoadingComponent />

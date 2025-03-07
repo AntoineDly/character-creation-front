@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import { ref, Ref } from "vue";
-import { RouteNameGameEnum } from "@/router/routes.enum";
+import { RouteNameGameEnum } from "@/router/router.enum";
 import { createGame } from "./game.service";
 import { CreateGameFormInterface } from "./game.interface";
 import LoadingComponent from "@/components/LoadingComponent.vue";

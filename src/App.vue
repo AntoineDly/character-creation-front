@@ -35,6 +35,9 @@
     <router-link :to="{ name: RouteNameLinkedItemEnum.LINKED_ITEMS }"
       >Liste des objets liés</router-link
     >
+    <router-link :to="{ name: RouteNameParameterEnum.PARAMETERS }"
+      >Liste des paramètres</router-link
+    >
     <button @click="handleLogout">Se déconnecter</button>
   </nav>
   <main>
@@ -53,8 +56,9 @@ import {
   RouteNameHomeEnum,
   RouteNameItemEnum,
   RouteNameLinkedItemEnum,
+  RouteNameParameterEnum,
   RouteNamePlayableItemEnum,
-} from "@/router/routes.enum";
+} from "@/router/router.enum";
 import router from "@/router/router";
 import { logout } from "@/pages/Auth/auth.service";
 

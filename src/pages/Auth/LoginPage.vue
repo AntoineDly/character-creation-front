@@ -27,7 +27,7 @@
 <script setup lang="ts">
 import { login } from "./auth.service";
 import { useRouter } from "vue-router";
-import { RouteNameHomeEnum } from "@/router/routes.enum";
+import { RouteNameHomeEnum } from "@/router/router.enum";
 import { Ref, ref } from "vue";
 import { LoginFormInterface } from "./auth.interface";
 import LoadingComponent from "@/components/LoadingComponent.vue";

@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
-import { RouteNameCategoryEnum } from "@/router/routes.enum";
+import { RouteNameCategoryEnum } from "@/router/router.enum";
 import CategoriesPage from "@/pages/Category/CategoriesPage.vue";
 import CreateCategoryPage from "@/pages/Category/CreateCategoryPage.vue";
 

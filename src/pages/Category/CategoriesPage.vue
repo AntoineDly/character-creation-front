@@ -17,7 +17,7 @@
 import { CategoryDtoInterface } from "./category.interface";
 import { onBeforeMount, ref, Ref } from "vue";
 import { getCategories } from "./category.service";
-import { RouteNameCategoryEnum } from "@/router/routes.enum";
+import { RouteNameCategoryEnum } from "@/router/router.enum";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 
 const isLoaded: Ref<boolean> = ref(false);

@@ -33,7 +33,7 @@
 </template>
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import { RouteNameItemEnum } from "@/router/routes.enum";
+import { RouteNameItemEnum } from "@/router/router.enum";
 import { getComponents } from "@/pages/Component/component.service";
 import { createItem } from "./item.service";
 import LoadingComponent from "@/components/LoadingComponent.vue";

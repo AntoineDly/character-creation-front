@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from "vue-router";
-import { RouteNameGameEnum } from "@/router/routes.enum";
+import { RouteNameGameEnum } from "@/router/router.enum";
 import GamesPage from "@/pages/Game/GamesPage.vue";
 import GamePage from "@/pages/Game/GamePage.vue";
 import AssociateCategoryPage from "@/pages/Game/AssociateCategoryPage.vue";

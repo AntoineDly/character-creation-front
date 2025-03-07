@@ -6,6 +6,13 @@
     <h1>Liste des composants</h1>
     <div v-for="component in components" :key="component.id">
       {{ component.id }}
+      <router-link
+        :to="{
+          name: RouteNameComponentFieldEnum.CREATE_COMPONENT_FIELD,
+          params: { componentId: component.id },
+        }"
+        >Créer un champ au composant</router-link
+      >
     </div>
   </template>
   <template v-else>
@@ -17,7 +24,10 @@ import { onBeforeMount, ref, Ref } from "vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 import { ComponentDtoInterface } from "./component.interface";
 import { getComponents } from "./component.service";
-import { RouteNameComponentEnum } from "@/router/routes.enum";
+import {
+  RouteNameComponentEnum,
+  RouteNameComponentFieldEnum,
+} from "@/router/router.enum";
 
 const isLoaded: Ref<boolean> = ref(false);
 

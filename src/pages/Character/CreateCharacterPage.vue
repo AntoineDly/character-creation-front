@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import { onBeforeMount, ref, Ref } from "vue";
 import { useRouter } from "vue-router";
-import { RouteNameCharacterEnum } from "@/router/routes.enum";
+import { RouteNameCharacterEnum } from "@/router/router.enum";
 import LoadingComponent from "@/components/LoadingComponent.vue";
 import { GameDtoInterface } from "@/pages/Game/game.interface";
 import { getGames } from "@/pages/Game/game.service";

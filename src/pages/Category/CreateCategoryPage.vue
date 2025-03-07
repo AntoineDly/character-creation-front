@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import { ref, Ref } from "vue";
-import { RouteNameCategoryEnum } from "@/router/routes.enum";
+import { RouteNameCategoryEnum } from "@/router/router.enum";
 import { CreateCategoryFormInterface } from "./category.interface";
 import { createCategory } from "./category.service";
 import LoadingComponent from "@/components/LoadingComponent.vue";

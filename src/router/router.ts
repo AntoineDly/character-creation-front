@@ -4,7 +4,7 @@ import { gameRoutes } from "@/pages/Game/routes";
 import { useAuthStore } from "@/pages/Auth/authStore";
 import { dashboardRoutes } from "@/pages/Dashboard/routes";
 import { loginRoutes } from "@/pages/Auth/routes";
-import { RouteNameAuthEnum } from "@/router/routes.enum";
+import { RouteNameAuthEnum } from "@/router/router.enum";
 import { notFoundRoutes } from "@/pages/NotFound/routes";
 import { characterRoutes } from "@/pages/Character/routes";
 import { categoryRoutes } from "@/pages/Category/routes";
@@ -12,6 +12,8 @@ import { componentRoutes } from "@/pages/Component/routes";
 import { itemRoutes } from "@/pages/Item/routes";
 import { playableItemRoutes } from "@/pages/PlayableItem/routes";
 import { linkedItemRoutes } from "@/pages/LinkedItem/routes";
+import { parameterRoutes } from "@/pages/Parameter/routes";
+import { componentFieldRoutes } from "@/pages/Component/ComponentField/routes";
 
 const routes = [
   ...homeRoutes,
@@ -25,6 +27,8 @@ const routes = [
   ...itemRoutes,
   ...playableItemRoutes,
   ...linkedItemRoutes,
+  ...parameterRoutes,
+  ...componentFieldRoutes,
 ];
 
 const router = createRouter({

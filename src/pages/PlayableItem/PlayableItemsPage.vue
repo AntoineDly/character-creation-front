@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { onBeforeMount, ref, Ref } from "vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";
-import { RouteNamePlayableItemEnum } from "@/router/routes.enum";
+import { RouteNamePlayableItemEnum } from "@/router/router.enum";
 import { PlayableItemDtoInterface } from "./playableItem.interface";
 import { getPlayableItems } from "./playableItem.service";
 

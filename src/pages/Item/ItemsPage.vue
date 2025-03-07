@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { onBeforeMount, ref, Ref } from "vue";
 import LoadingComponent from "@/components/LoadingComponent.vue";
-import { RouteNameItemEnum } from "@/router/routes.enum";
+import { RouteNameItemEnum } from "@/router/router.enum";
 import { ItemDtoInterface } from "./item.interface";
 import { getItems } from "./item.service";
 
