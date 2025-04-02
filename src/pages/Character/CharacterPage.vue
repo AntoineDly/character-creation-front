@@ -4,10 +4,7 @@
     <p>Jeu : {{ character.gameDto.name }}</p>
     <p>Catégories</p>
     <ul>
-      <li
-        v-for="category in character.categoryForCharacterDtos"
-        :key="category.id"
-      >
+      <li v-for="category in character.categoryForCharacterDtos" :key="category.id">
         {{ category.name }}
         <p>Objets liés</p>
         <ul>
@@ -15,10 +12,7 @@
             v-for="linkedItemForCharacterDto in category.linkedItemForCharacterDtos"
             :key="linkedItemForCharacterDto.id"
           >
-            <div
-              v-for="fieldDto in linkedItemForCharacterDto.fieldDtos"
-              :key="fieldDto.id"
-            >
+            <div v-for="fieldDto in linkedItemForCharacterDto.fieldDtos" :key="fieldDto.id">
               {{ fieldDto.name }} : {{ fieldDto.value }}
             </div>
           </li>
@@ -31,27 +25,27 @@
   </template>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, ref, Ref } from "vue";
-import { getCharacter } from "./character.service";
-import { CharacterWithLinkedItemsDtoInterface } from "./character.interface";
-import { useRoute } from "vue-router";
-import LoadingComponent from "@/components/LoadingComponent.vue";
+import { onBeforeMount, ref, Ref } from 'vue'
+import { getCharacter } from './character.service'
+import { CharacterWithLinkedItemsDtoInterface } from './character.interface'
+import { useRoute } from 'vue-router'
+import LoadingComponent from '@/components/LoadingComponent.vue'
 
-const isLoaded: Ref<boolean> = ref(false);
-const route = useRoute();
+const isLoaded: Ref<boolean> = ref(false)
+const route = useRoute()
 
-const characterId: Ref<string> = ref(route.params.characterId as string);
+const characterId: Ref<string> = ref(route.params.characterId as string)
 const character: Ref<CharacterWithLinkedItemsDtoInterface> = ref({
-  id: "",
+  id: '',
   gameDto: {
-    id: "",
-    name: "",
+    id: '',
+    name: '',
   },
   categoryForCharacterDtos: [],
-});
+})
 
 onBeforeMount(async () => {
-  character.value = await getCharacter(characterId.value);
-  isLoaded.value = true;
-});
+  character.value = await getCharacter(characterId.value)
+  isLoaded.value = true
+})
 </script>

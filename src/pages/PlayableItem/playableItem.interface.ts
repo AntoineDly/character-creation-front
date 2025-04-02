@@ -1,8 +1,8 @@
 export interface PlayableItemDtoInterface {
-  id: string;
+  id: string
 }
 
 export interface CreatePlayableItemFormInterface {
-  itemId: string;
-  gameId: string;
+  itemId: string
+  gameId: string
 }

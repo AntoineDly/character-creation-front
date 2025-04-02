@@ -1,5 +1,5 @@
 export enum TypeParameterEnum {
-  STRING = "string",
-  INT = "int",
-  BOOLEAN = "boolean",
+  STRING = 'string',
+  INT = 'int',
+  BOOLEAN = 'boolean',
 }

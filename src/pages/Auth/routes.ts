@@ -1,17 +1,17 @@
-import { RouteRecordRaw } from "vue-router";
-import LoginPage from "./LoginPage.vue";
-import { RouteNameAuthEnum } from "@/router/router.enum";
-import RegisterPage from "@/pages/Auth/RegisterPage.vue";
+import { RouteRecordRaw } from 'vue-router'
+import LoginPage from './LoginPage.vue'
+import { RouteNameAuthEnum } from '@/router/router.enum'
+import RegisterPage from '@/pages/Auth/RegisterPage.vue'
 
 export const loginRoutes: RouteRecordRaw[] = [
   {
-    path: "/login",
+    path: '/login',
     component: LoginPage,
     name: RouteNameAuthEnum.LOGIN,
   },
   {
-    path: "/register",
+    path: '/register',
     component: RegisterPage,
     name: RouteNameAuthEnum.REGISTER,
   },
-];
+]

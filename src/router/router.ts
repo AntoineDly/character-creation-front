@@ -1,19 +1,19 @@
-import { createWebHistory, createRouter } from "vue-router";
-import { homeRoutes } from "@/pages/Home/routes";
-import { gameRoutes } from "@/pages/Game/routes";
-import { useAuthStore } from "@/pages/Auth/authStore";
-import { dashboardRoutes } from "@/pages/Dashboard/routes";
-import { loginRoutes } from "@/pages/Auth/routes";
-import { RouteNameAuthEnum } from "@/router/router.enum";
-import { notFoundRoutes } from "@/pages/NotFound/routes";
-import { characterRoutes } from "@/pages/Character/routes";
-import { categoryRoutes } from "@/pages/Category/routes";
-import { componentRoutes } from "@/pages/Component/routes";
-import { itemRoutes } from "@/pages/Item/routes";
-import { playableItemRoutes } from "@/pages/PlayableItem/routes";
-import { linkedItemRoutes } from "@/pages/LinkedItem/routes";
-import { parameterRoutes } from "@/pages/Parameter/routes";
-import { componentFieldRoutes } from "@/pages/Component/ComponentField/routes";
+import { createWebHistory, createRouter } from 'vue-router'
+import { homeRoutes } from '@/pages/Home/routes'
+import { gameRoutes } from '@/pages/Game/routes'
+import { useAuthStore } from '@/pages/Auth/authStore'
+import { dashboardRoutes } from '@/pages/Dashboard/routes'
+import { loginRoutes } from '@/pages/Auth/routes'
+import { RouteNameAuthEnum } from '@/router/router.enum'
+import { notFoundRoutes } from '@/pages/NotFound/routes'
+import { characterRoutes } from '@/pages/Character/routes'
+import { categoryRoutes } from '@/pages/Category/routes'
+import { componentRoutes } from '@/pages/Component/routes'
+import { itemRoutes } from '@/pages/Item/routes'
+import { playableItemRoutes } from '@/pages/PlayableItem/routes'
+import { linkedItemRoutes } from '@/pages/LinkedItem/routes'
+import { parameterRoutes } from '@/pages/Parameter/routes'
+import { componentFieldRoutes } from '@/pages/Component/ComponentField/routes'
 
 const routes = [
   ...homeRoutes,
@@ -29,20 +29,20 @@ const routes = [
   ...linkedItemRoutes,
   ...parameterRoutes,
   ...componentFieldRoutes,
-];
+]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-});
+})
 
-router.beforeEach(async (to) => {
-  if (to.matched.some((record) => record.meta.requiresAuth)) {
-    const authStore = useAuthStore();
+router.beforeEach(async to => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    const authStore = useAuthStore()
     if (!authStore.isAuthenticated) {
-      return { name: RouteNameAuthEnum.LOGIN };
+      return { name: RouteNameAuthEnum.LOGIN }
     }
   }
-});
+})
 
-export default router;
+export default router

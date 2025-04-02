@@ -1,8 +1,8 @@
 export interface ItemDtoInterface {
-  id: string;
+  id: string
 }
 
 export interface CreateItemFormInterface {
-  componentId: string;
-  categoryId: string;
+  componentId: string
+  categoryId: string
 }

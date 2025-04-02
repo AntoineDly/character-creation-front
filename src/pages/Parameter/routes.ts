@@ -1,19 +1,19 @@
-import { RouteRecordRaw } from "vue-router";
-import { RouteNameParameterEnum } from "@/router/router.enum";
-import ParametersPage from "./ParametersPage.vue";
-import CreateParameterPage from "./CreateParameterPage.vue";
+import { RouteRecordRaw } from 'vue-router'
+import { RouteNameParameterEnum } from '@/router/router.enum'
+import ParametersPage from './ParametersPage.vue'
+import CreateParameterPage from './CreateParameterPage.vue'
 
 export const parameterRoutes: RouteRecordRaw[] = [
   {
-    path: "/parameters",
+    path: '/parameters',
     component: ParametersPage,
     name: RouteNameParameterEnum.PARAMETERS,
     meta: { requiresAuth: true },
   },
   {
-    path: "/parameters/create",
+    path: '/parameters/create',
     component: CreateParameterPage,
     name: RouteNameParameterEnum.CREATE_PARAMETER,
     meta: { requiresAuth: true },
   },
-];
+]

@@ -1,18 +1,13 @@
-import { authenticatedAxiosInstance } from "@/config/axios";
-import {
-  CategoryDtoInterface,
-  CreateCategoryFormInterface,
-} from "./category.interface";
+import { authenticatedAxiosInstance } from '@/config/axios'
+import { CategoryDtoInterface, CreateCategoryFormInterface } from './category.interface'
 
 async function getCategories(): Promise<CategoryDtoInterface[]> {
-  const response = await authenticatedAxiosInstance.get("/categories");
-  return response.data.data;
+  const response = await authenticatedAxiosInstance.get('/categories')
+  return response.data.data
 }
 
-async function createCategory(
-  data: CreateCategoryFormInterface,
-): Promise<void> {
-  await authenticatedAxiosInstance.post("/categories", data);
+async function createCategory(data: CreateCategoryFormInterface): Promise<void> {
+  await authenticatedAxiosInstance.post('/categories', data)
 }
 
-export { getCategories, createCategory };
+export { getCategories, createCategory }

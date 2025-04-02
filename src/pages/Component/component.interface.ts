@@ -1,3 +1,3 @@
 export interface ComponentDtoInterface {
-  id: string;
+  id: string
 }

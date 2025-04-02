@@ -4,8 +4,9 @@
       :to="{
         name: RouteNameGameEnum.CREATE_GAME,
       }"
-      >Créer un jeu</router-link
     >
+      Créer un jeu
+    </router-link>
     <h1>Liste des jeux</h1>
     <div v-for="game in games" :key="game.id">
       {{ game.id }}
@@ -15,8 +16,9 @@
           name: RouteNameGameEnum.GAME,
           params: { gameId: game.id },
         }"
-        >Voir le jeu</router-link
       >
+        Voir le jeu
+      </router-link>
     </div>
   </template>
   <template v-else>
@@ -24,18 +26,18 @@
   </template>
 </template>
 <script setup lang="ts">
-import { RouteNameGameEnum } from "@/router/router.enum";
-import { GameDtoInterface } from "./game.interface";
-import { onBeforeMount, ref, Ref } from "vue";
-import { getGames } from "./game.service";
-import LoadingComponent from "@/components/LoadingComponent.vue";
+import { RouteNameGameEnum } from '@/router/router.enum'
+import { GameDtoInterface } from './game.interface'
+import { onBeforeMount, ref, Ref } from 'vue'
+import { getGames } from './game.service'
+import LoadingComponent from '@/components/LoadingComponent.vue'
 
-const isLoaded: Ref<boolean> = ref(false);
+const isLoaded: Ref<boolean> = ref(false)
 
-const games: Ref<GameDtoInterface[]> = ref([]);
+const games: Ref<GameDtoInterface[]> = ref([])
 
 onBeforeMount(async () => {
-  games.value = await getGames();
-  isLoaded.value = true;
-});
+  games.value = await getGames()
+  isLoaded.value = true
+})
 </script>
