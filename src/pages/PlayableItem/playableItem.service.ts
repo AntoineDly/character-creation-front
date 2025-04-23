@@ -3,7 +3,7 @@ import { CreatePlayableItemFormInterface, PlayableItemDtoInterface } from './pla
 
 async function getPlayableItems(): Promise<PlayableItemDtoInterface[]> {
   const response = await authenticatedAxiosInstance.get('/playable_items')
-  return response.data.data
+  return response.data.data.dtos
 }
 
 async function createPlayableItem(data: CreatePlayableItemFormInterface): Promise<void> {

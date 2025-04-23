@@ -8,7 +8,7 @@ import {
 
 async function getCharacters(): Promise<CharacterDtoInterface[]> {
   const response = await authenticatedAxiosInstance.get('/characters')
-  return response.data.data
+  return response.data.data.dtos
 }
 
 async function getCharacter(characterId: string): Promise<CharacterWithLinkedItemsDtoInterface> {
@@ -18,7 +18,7 @@ async function getCharacter(characterId: string): Promise<CharacterWithLinkedIte
 
 async function getCharactersWithGame(): Promise<CharacterWithGameDtoInterface[]> {
   const response = await authenticatedAxiosInstance.get('/characters/with_game')
-  return response.data.data
+  return response.data.data.dtos
 }
 
 async function createCharacter(data: CreateCharacterFormInterface): Promise<void> {

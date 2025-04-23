@@ -3,7 +3,7 @@ import { ComponentDtoInterface } from './component.interface'
 
 async function getComponents(): Promise<ComponentDtoInterface[]> {
   const response = await authenticatedAxiosInstance.get('/components')
-  return response.data.data
+  return response.data.data.dtos
 }
 
 async function createComponent(): Promise<void> {

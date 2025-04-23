@@ -3,7 +3,7 @@ import { CreateLinkedItemFormInterface, LinkedItemDtoInterface } from './linkedI
 
 async function getLinkedItems(): Promise<LinkedItemDtoInterface[]> {
   const response = await authenticatedAxiosInstance.get('/linked_items')
-  return response.data.data
+  return response.data.data.dtos
 }
 
 async function createLinkedItem(data: CreateLinkedItemFormInterface): Promise<void> {

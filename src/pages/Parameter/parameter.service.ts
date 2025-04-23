@@ -3,7 +3,7 @@ import { CreateParameterFormInterface, ParameterDtoInterface } from './parameter
 
 async function getParameters(): Promise<ParameterDtoInterface[]> {
   const response = await authenticatedAxiosInstance.get('/parameters')
-  return response.data.data
+  return response.data.data.dtos
 }
 
 async function createParameter(data: CreateParameterFormInterface): Promise<void> {

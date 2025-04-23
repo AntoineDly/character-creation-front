@@ -12,7 +12,7 @@
             v-for="linkedItemForCharacterDto in category.linkedItemForCharacterDtos"
             :key="linkedItemForCharacterDto.id"
           >
-            <div v-for="fieldDto in linkedItemForCharacterDto.fieldDtos" :key="fieldDto.id">
+            <div v-for="fieldDto in linkedItemForCharacterDto.fieldDtoCollection" :key="fieldDto.id">
               {{ fieldDto.name }} : {{ fieldDto.value }}
             </div>
           </li>

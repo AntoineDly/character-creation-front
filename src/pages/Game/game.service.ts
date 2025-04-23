@@ -8,7 +8,7 @@ import {
 
 async function getGames(): Promise<GameDtoInterface[]> {
   const response = await authenticatedAxiosInstance.get('/games')
-  return response.data.data
+  return response.data.data.dtos
 }
 
 async function getGame(gameId: string): Promise<GameWithCategoriesAndPlayableItemsDtoInterface> {

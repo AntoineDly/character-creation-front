@@ -6,7 +6,7 @@ export interface LinkedItemDtoInterface {
 
 export interface LinkedItemForCharacterDto {
   id: string
-  fieldDtos: FieldDtoInterface[]
+  fieldDtoCollection: FieldDtoInterface[]
 }
 
 export interface CreateLinkedItemFormInterface {

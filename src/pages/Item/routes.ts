@@ -1,18 +1,16 @@
 import { RouteRecordRaw } from 'vue-router'
 import { RouteNameItemEnum } from '@/router/router.enum'
-import ItemsPage from './ItemsPage.vue'
-import CreateItemPage from './CreateItemPage.vue'
 
 export const itemRoutes: RouteRecordRaw[] = [
   {
     path: '/items',
-    component: ItemsPage,
+    component: () => import('@/pages/Item/ItemsPage.vue'),
     name: RouteNameItemEnum.ITEMS,
     meta: { requiresAuth: true },
   },
   {
     path: '/items/create',
-    component: CreateItemPage,
+    component: () => import('@/pages/Item/CreateItemPage.vue'),
     name: RouteNameItemEnum.CREATE_ITEM,
     meta: { requiresAuth: true },
   },

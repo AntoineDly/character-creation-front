@@ -1,4 +1,3 @@
-import HomePage from './HomePage.vue'
 import { RouteRecordRaw } from 'vue-router'
 import { useAuthStore } from '@/pages/Auth/authStore'
 import { RouteNameDashboardEnum, RouteNameHomeEnum } from '@/router/router.enum'
@@ -6,7 +5,7 @@ import { RouteNameDashboardEnum, RouteNameHomeEnum } from '@/router/router.enum'
 export const homeRoutes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: HomePage,
+    component: () => import('@/pages/Home/HomePage.vue'),
     name: RouteNameHomeEnum.HOME,
     alias: '/home',
     beforeEnter: (to, from, next) => {

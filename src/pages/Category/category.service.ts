@@ -3,7 +3,7 @@ import { CategoryDtoInterface, CreateCategoryFormInterface } from './category.in
 
 async function getCategories(): Promise<CategoryDtoInterface[]> {
   const response = await authenticatedAxiosInstance.get('/categories')
-  return response.data.data
+  return response.data.data.dtos
 }
 
 async function createCategory(data: CreateCategoryFormInterface): Promise<void> {
