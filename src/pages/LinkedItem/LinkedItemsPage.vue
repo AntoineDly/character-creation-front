@@ -2,7 +2,8 @@
   <template v-if="isLoaded">
     <router-link :to="{ name: RouteNameLinkedItemEnum.CREATE_LINKED_ITEM }"> Créer un objet lié </router-link>
     <h1>Liste des objets liés</h1>
-    <div v-for="linkedItem in linkedItems" :key="linkedItem.id">
+    <PaginationComponent v-bind="linkedItems.paginationDto" />
+    <div v-for="linkedItem in linkedItems.dtos" :key="linkedItem.id">
       {{ linkedItem.id }}
     </div>
   </template>
@@ -14,12 +15,14 @@
 import { onBeforeMount, ref, Ref } from 'vue'
 import LoadingComponent from '@/components/LoadingComponent.vue'
 import { RouteNameLinkedItemEnum } from '@/router/router.enum'
-import { LinkedItemDtoInterface } from './linkedItem.interface'
+import { LinkedItemsDtoInterface } from './linkedItem.interface'
 import { getLinkedItems } from './linkedItem.service'
+import PaginationComponent from '@/components/Pagination/PaginationComponent.vue'
+import { defaultCollectionValues } from '@/utils'
 
 const isLoaded: Ref<boolean> = ref(false)
 
-const linkedItems: Ref<LinkedItemDtoInterface[]> = ref([])
+const linkedItems: Ref<LinkedItemsDtoInterface> = ref(defaultCollectionValues)
 
 onBeforeMount(async () => {
   linkedItems.value = await getLinkedItems()

@@ -1,9 +1,9 @@
 import { authenticatedAxiosInstance } from '@/config/axios'
-import { CreateLinkedItemFormInterface, LinkedItemDtoInterface } from './linkedItem.interface'
+import { CreateLinkedItemFormInterface, LinkedItemsDtoInterface } from './linkedItem.interface'
 
-async function getLinkedItems(): Promise<LinkedItemDtoInterface[]> {
+async function getLinkedItems(): Promise<LinkedItemsDtoInterface> {
   const response = await authenticatedAxiosInstance.get('/linked_items')
-  return response.data.data.dtos
+  return response.data.data
 }
 
 async function createLinkedItem(data: CreateLinkedItemFormInterface): Promise<void> {

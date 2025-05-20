@@ -1,9 +1,9 @@
 import { authenticatedAxiosInstance } from '@/config/axios'
-import { CreateParameterFormInterface, ParameterDtoInterface } from './parameter.interface'
+import { CreateParameterFormInterface, ParametersDtoInterface } from './parameter.interface'
 
-async function getParameters(): Promise<ParameterDtoInterface[]> {
+async function getParameters(): Promise<ParametersDtoInterface> {
   const response = await authenticatedAxiosInstance.get('/parameters')
-  return response.data.data.dtos
+  return response.data.data
 }
 
 async function createParameter(data: CreateParameterFormInterface): Promise<void> {

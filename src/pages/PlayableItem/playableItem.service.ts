@@ -1,9 +1,9 @@
 import { authenticatedAxiosInstance } from '@/config/axios'
-import { CreatePlayableItemFormInterface, PlayableItemDtoInterface } from './playableItem.interface'
+import { CreatePlayableItemFormInterface, PlayableItemsDtoInterface } from './playableItem.interface'
 
-async function getPlayableItems(): Promise<PlayableItemDtoInterface[]> {
+async function getPlayableItems(): Promise<PlayableItemsDtoInterface> {
   const response = await authenticatedAxiosInstance.get('/playable_items')
-  return response.data.data.dtos
+  return response.data.data
 }
 
 async function createPlayableItem(data: CreatePlayableItemFormInterface): Promise<void> {

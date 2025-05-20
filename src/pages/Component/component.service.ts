@@ -1,9 +1,9 @@
 import { authenticatedAxiosInstance } from '@/config/axios'
-import { ComponentDtoInterface } from './component.interface'
+import { ComponentsDtoInterface } from './component.interface'
 
-async function getComponents(): Promise<ComponentDtoInterface[]> {
+async function getComponents(): Promise<ComponentsDtoInterface> {
   const response = await authenticatedAxiosInstance.get('/components')
-  return response.data.data.dtos
+  return response.data.data
 }
 
 async function createComponent(): Promise<void> {

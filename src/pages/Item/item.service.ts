@@ -1,9 +1,9 @@
 import { authenticatedAxiosInstance } from '@/config/axios'
-import { CreateItemFormInterface, ItemDtoInterface } from './item.interface'
+import { CreateItemFormInterface, ItemsDtoInterface } from './item.interface'
 
-async function getItems(): Promise<ItemDtoInterface[]> {
+async function getItems(): Promise<ItemsDtoInterface> {
   const response = await authenticatedAxiosInstance.get('/items')
-  return response.data.data.dtos
+  return response.data.data
 }
 
 async function createItem(data: CreateItemFormInterface): Promise<void> {

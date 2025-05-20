@@ -2,13 +2,13 @@ import { authenticatedAxiosInstance } from '@/config/axios'
 import {
   AssociateCategoryFormInterface,
   CreateGameFormInterface,
-  GameDtoInterface,
+  GamesDtoInterface,
   GameWithCategoriesAndPlayableItemsDtoInterface,
 } from './game.interface'
 
-async function getGames(): Promise<GameDtoInterface[]> {
+async function getGames(): Promise<GamesDtoInterface> {
   const response = await authenticatedAxiosInstance.get('/games')
-  return response.data.data.dtos
+  return response.data.data
 }
 
 async function getGame(gameId: string): Promise<GameWithCategoriesAndPlayableItemsDtoInterface> {
