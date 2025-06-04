@@ -2,7 +2,10 @@
   <template v-if="isLoaded">
     <router-link :to="{ name: RouteNamePlayableItemEnum.CREATE_PLAYABLE_ITEM }"> Créer un objet jouable </router-link>
     <h1>Liste des objets jouables</h1>
-    <PaginationComponent v-bind="playableItems.paginationDto" />
+    <PaginationComponent
+      :pagination-dto="playableItems.paginationDto"
+      :route="RouteNamePlayableItemEnum.PLAYABLE_ITEMS"
+    />
     <div v-for="playableItem in playableItems.dtos" :key="playableItem.id">
       {{ playableItem.id }}
     </div>

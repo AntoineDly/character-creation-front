@@ -1,4 +1,4 @@
-import { FieldDtoInterface } from '@/pages/Field/field.interface'
+import { FieldDtoInterface } from '@/components/Field/field.interface'
 import { PaginationDtoInterface } from '@/components/Pagination/pagination.interface'
 
 export interface LinkedItemDtoInterface {

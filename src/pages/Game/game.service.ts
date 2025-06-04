@@ -5,9 +5,10 @@ import {
   GamesDtoInterface,
   GameWithCategoriesAndPlayableItemsDtoInterface,
 } from './game.interface'
+import { PaginationQueryParamsInterface } from '@/components/Pagination/pagination.interface'
 
-async function getGames(): Promise<GamesDtoInterface> {
-  const response = await authenticatedAxiosInstance.get('/games')
+async function getGames(pagination: PaginationQueryParamsInterface): Promise<GamesDtoInterface> {
+  const response = await authenticatedAxiosInstance.get('/games', { params: pagination })
   return response.data.data
 }
 

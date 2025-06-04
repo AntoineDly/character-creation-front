@@ -1,7 +1,7 @@
 <template>
   <template v-if="isLoaded">
     <h1>Liste des catégories</h1>
-    <PaginationComponent v-bind="categories.paginationDto" />
+    <PaginationComponent :pagination-dto="categories.paginationDto" :route="RouteNameCategoryEnum.CATEGORIES" />
     <div v-for="category in categories.dtos" :key="category.id">
       {{ category.id }}
       {{ category.name }}

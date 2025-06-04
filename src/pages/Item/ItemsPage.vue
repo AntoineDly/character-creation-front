@@ -2,7 +2,7 @@
   <template v-if="isLoaded">
     <router-link :to="{ name: RouteNameItemEnum.CREATE_ITEM }"> Créer un objet </router-link>
     <h1>Liste des objets</h1>
-    <PaginationComponent v-bind="items.paginationDto" />
+    <PaginationComponent :pagination-dto="items.paginationDto" :route="RouteNameItemEnum.ITEMS" />
     <div v-for="item in items.dtos" :key="item.id">
       {{ item.id }}
     </div>

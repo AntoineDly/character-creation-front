@@ -2,7 +2,7 @@
   <template v-if="isLoaded">
     <router-link :to="{ name: RouteNameParameterEnum.CREATE_PARAMETER }"> Créer un paramètre </router-link>
     <h1>Liste des paramètres</h1>
-    <PaginationComponent v-bind="parameters.paginationDto" />
+    <PaginationComponent :pagination-dto="parameters.paginationDto" :route="RouteNameParameterEnum.PARAMETERS" />
     <div v-for="parameter in parameters.dtos" :key="parameter.id">
       {{ parameter.id }} | {{ parameter.name }} | {{ parameter.type }}
     </div>

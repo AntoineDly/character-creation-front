@@ -2,7 +2,7 @@
   <template v-if="isLoaded">
     <router-link :to="{ name: RouteNameComponentEnum.CREATE_COMPONENT }"> Créer un composant </router-link>
     <h1>Liste des composants</h1>
-    <PaginationComponent v-bind="components.paginationDto" />
+    <PaginationComponent :pagination-dto="components.paginationDto" :route="RouteNameComponentEnum.COMPONENTS" />
     <div v-for="component in components.dtos" :key="component.id">
       {{ component.id }}
       <router-link

@@ -7,3 +7,19 @@ export interface PaginationDtoInterface {
   nextPage: number | null
   lastPage: number | null
 }
+
+export interface PaginationInterface {
+  paginationDto: PaginationDtoInterface
+  route: string
+}
+
+export interface PaginationQueryParamsInterface {
+  perPage: number
+  page: number
+}
+
+export interface PaginationRouterLinkInterface {
+  perPage: number
+  page: number | null
+  route: string
+}
