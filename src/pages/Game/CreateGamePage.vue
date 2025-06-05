@@ -1,6 +1,6 @@
 <template>
+  <h1>Créer un jeu</h1>
   <template v-if="isLoaded">
-    <h1>Créer un jeu</h1>
     <form @submit.prevent="handleSubmit">
       <label for="name">Nom du jeu</label>
       <input id="name" v-model="formData.name" type="text" placeholder="Nom de jeu" />
@@ -19,7 +19,7 @@ import { ref, Ref } from 'vue'
 import { RouteNameGameEnum } from '@/router/router.enum'
 import { createGame } from './game.service'
 import { CreateGameFormInterface } from './game.interface'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 
 const isLoaded: Ref<boolean> = ref(true)
 const router = useRouter()

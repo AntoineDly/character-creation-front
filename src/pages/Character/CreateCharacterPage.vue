@@ -1,6 +1,6 @@
 <template>
+  <h1>Créer un personnage</h1>
   <template v-if="isLoaded">
-    <h1>Créer un personnage</h1>
     <form @submit.prevent="handleSubmit">
       <label for="game">Jeu</label>
       <select id="game" v-model="formData.gameId">
@@ -20,7 +20,7 @@
 import { onBeforeMount, ref, Ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { RouteNameCharacterEnum } from '@/router/router.enum'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { GameDtoInterface } from '@/pages/Game/game.interface'
 import { getGames } from '@/pages/Game/game.service'
 import { CreateCharacterFormInterface } from './character.interface'

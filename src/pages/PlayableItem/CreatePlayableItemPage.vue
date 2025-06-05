@@ -1,6 +1,6 @@
 <template>
+  <h1>Créer un objet jouable</h1>
   <template v-if="isLoaded">
-    <h1>Créer un objet jouable</h1>
     <form @submit.prevent="handleSubmit">
       <label for="item">Objet</label>
       <select id="item" v-model="formData.itemId">
@@ -28,7 +28,7 @@ import { useRouter } from 'vue-router'
 import { RouteNamePlayableItemEnum } from '@/router/router.enum'
 import { getItems } from '@/pages/Item/item.service'
 import { createPlayableItem } from './playableItem.service'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { onBeforeMount, ref, Ref } from 'vue'
 import { ItemDtoInterface } from '@/pages/Item/item.interface'
 import { GameDtoInterface } from '@/pages/Game/game.interface'

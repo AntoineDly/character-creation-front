@@ -1,8 +1,8 @@
 <template>
+  <router-link :to="{ name: RouteNameComponentEnum.CREATE_COMPONENT }"> Créer un composant </router-link>
+  <h1>Liste des composants</h1>
   <template v-if="isLoaded">
-    <router-link :to="{ name: RouteNameComponentEnum.CREATE_COMPONENT }"> Créer un composant </router-link>
-    <h1>Liste des composants</h1>
-    <PaginationComponent :pagination-dto="components.paginationDto" :route="RouteNameComponentEnum.COMPONENTS" />
+    <PaginationComponent v-bind="components.paginationDto" />
     <div v-for="component in components.dtos" :key="component.id">
       {{ component.id }}
       <router-link
@@ -21,7 +21,7 @@
 </template>
 <script setup lang="ts">
 import { onBeforeMount, ref, Ref } from 'vue'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { ComponentsDtoInterface } from './component.interface'
 import { getComponents } from './component.service'
 import { RouteNameComponentEnum, RouteNameComponentFieldEnum } from '@/router/router.enum'

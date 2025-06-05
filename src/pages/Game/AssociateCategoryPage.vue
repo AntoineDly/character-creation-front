@@ -1,6 +1,6 @@
 <template>
+  <h1>Associer une catégorie</h1>
   <template v-if="isLoaded">
-    <h1>Associer une catégorie</h1>
     <form @submit.prevent="handleSubmit">
       <label for="categories">Catégorie</label>
       <select id="categories" v-model="formData.categoryId">
@@ -24,7 +24,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { AssociateCategoryFormInterface } from './game.interface'
 import { RouteNameGameEnum } from '@/router/router.enum'
 import { associateCategory } from './game.service'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 
 const isLoaded: Ref<boolean> = ref(false)
 const route = useRoute()

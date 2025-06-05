@@ -1,6 +1,6 @@
 <template>
+  <h1>Créer un composant</h1>
   <template v-if="isLoaded">
-    <h1>Créer un composant</h1>
     <form @submit.prevent="handleSubmit">
       <input type="submit" value="Créer un composant" />
     </form>
@@ -14,7 +14,7 @@ import { useRouter } from 'vue-router'
 import { RouteNameComponentEnum } from '@/router/router.enum'
 import { createComponent } from '@/pages/Component/component.service'
 import { ref, Ref } from 'vue'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 
 const isLoaded: Ref<boolean> = ref(true)
 const router = useRouter()

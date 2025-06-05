@@ -1,6 +1,6 @@
 <template>
+  <h1>Se connecter</h1>
   <template v-if="isLoaded">
-    <h1>Se connecter</h1>
     <form @submit.prevent="handleSubmit">
       <label for="email">Adresse mail</label>
       <input id="email" v-model="formData.email" type="email" placeholder="Adresse mail" />
@@ -20,7 +20,7 @@ import { useRouter } from 'vue-router'
 import { RouteNameHomeEnum } from '@/router/router.enum'
 import { Ref, ref } from 'vue'
 import { LoginFormInterface } from './auth.interface'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 
 const isLoaded: Ref<boolean> = ref(true)
 const router = useRouter()

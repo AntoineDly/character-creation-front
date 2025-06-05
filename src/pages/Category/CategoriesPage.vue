@@ -1,7 +1,7 @@
 <template>
+  <h1>Liste des catégories</h1>
   <template v-if="isLoaded">
-    <h1>Liste des catégories</h1>
-    <PaginationComponent :pagination-dto="categories.paginationDto" :route="RouteNameCategoryEnum.CATEGORIES" />
+    <PaginationComponent v-bind="categories.paginationDto" />
     <div v-for="category in categories.dtos" :key="category.id">
       {{ category.id }}
       {{ category.name }}
@@ -17,7 +17,7 @@ import { CategoriesDtoInterface } from './category.interface'
 import { onBeforeMount, ref, Ref } from 'vue'
 import { getCategories } from './category.service'
 import { RouteNameCategoryEnum } from '@/router/router.enum'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { defaultCollectionValues } from '@/utils'
 import PaginationComponent from '@/components/Pagination/PaginationComponent.vue'
 

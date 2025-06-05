@@ -1,6 +1,6 @@
 <template>
+  <h1>Créer un objet</h1>
   <template v-if="isLoaded">
-    <h1>Créer un objet</h1>
     <form @submit.prevent="handleSubmit">
       <label for="component">Composant</label>
       <select id="component" v-model="formData.componentId">
@@ -28,7 +28,7 @@ import { useRouter } from 'vue-router'
 import { RouteNameItemEnum } from '@/router/router.enum'
 import { getComponents } from '@/pages/Component/component.service'
 import { createItem } from './item.service'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { onBeforeMount, ref, Ref } from 'vue'
 import { ComponentDtoInterface } from '@/pages/Component/component.interface'
 import { CategoryDtoInterface } from '@/pages/Category/category.interface'

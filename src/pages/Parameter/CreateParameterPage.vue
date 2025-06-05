@@ -1,6 +1,6 @@
 <template>
+  <h1>Créer un paramètre</h1>
   <template v-if="isLoaded">
-    <h1>Créer un paramètre</h1>
     <label for="name">Nom du paramètre</label>
     <input id="name" v-model="formData.name" type="text" placeholder="Nom de paramètre" />
     <label for="type">Type</label>
@@ -23,7 +23,7 @@ import { useRouter } from 'vue-router'
 import { RouteNameParameterEnum } from '@/router/router.enum'
 import { createParameter } from '@/pages/Parameter/parameter.service'
 import { ref, Ref } from 'vue'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { CreateParameterFormInterface } from '@/pages/Parameter/parameter.interface'
 import { TypeParameterEnum } from '@/pages/Parameter/parameter.enum'
 

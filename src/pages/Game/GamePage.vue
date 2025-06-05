@@ -1,14 +1,14 @@
 <template>
+  <router-link
+    :to="{
+      name: RouteNameGameEnum.ASSOCIATE_CATEGORY,
+      params: { gameId: game.id },
+    }"
+  >
+    Associer une catégorie
+  </router-link>
+  <h1>Jeu</h1>
   <template v-if="isLoaded">
-    <router-link
-      :to="{
-        name: RouteNameGameEnum.ASSOCIATE_CATEGORY,
-        params: { gameId: game.id },
-      }"
-    >
-      Associer une catégorie
-    </router-link>
-    <h1>Jeu</h1>
     <p>Id : {{ game.id }}</p>
     <p>Jeu : {{ game.name }}</p>
     <p>Catégories</p>
@@ -34,7 +34,7 @@ import { getGame } from './game.service'
 import { GameWithCategoriesAndPlayableItemsDtoInterface } from './game.interface'
 import { useRoute } from 'vue-router'
 import { RouteNameGameEnum } from '@/router/router.enum'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 
 const isLoaded: Ref<boolean> = ref(false)
 const route = useRoute()

@@ -1,6 +1,6 @@
 <template>
+  <h1>Personnage</h1>
   <template v-if="isLoaded">
-    <h1>Personnage</h1>
     <p>Jeu : {{ character.gameDto.name }}</p>
     <p>Catégories</p>
     <ul>
@@ -29,7 +29,7 @@ import { onBeforeMount, ref, Ref } from 'vue'
 import { getCharacter } from './character.service'
 import { CharacterWithLinkedItemsDtoInterface } from './character.interface'
 import { useRoute } from 'vue-router'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 
 const isLoaded: Ref<boolean> = ref(false)
 const route = useRoute()

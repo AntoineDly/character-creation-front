@@ -1,8 +1,8 @@
 <template>
+  <router-link :to="{ name: RouteNameParameterEnum.CREATE_PARAMETER }"> Créer un paramètre </router-link>
+  <h1>Liste des paramètres</h1>
   <template v-if="isLoaded">
-    <router-link :to="{ name: RouteNameParameterEnum.CREATE_PARAMETER }"> Créer un paramètre </router-link>
-    <h1>Liste des paramètres</h1>
-    <PaginationComponent :pagination-dto="parameters.paginationDto" :route="RouteNameParameterEnum.PARAMETERS" />
+    <PaginationComponent v-bind="parameters.paginationDto" />
     <div v-for="parameter in parameters.dtos" :key="parameter.id">
       {{ parameter.id }} | {{ parameter.name }} | {{ parameter.type }}
     </div>
@@ -13,7 +13,7 @@
 </template>
 <script setup lang="ts">
 import { onBeforeMount, ref, Ref } from 'vue'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { ParametersDtoInterface } from './parameter.interface'
 import { getParameters } from './parameter.service'
 import { RouteNameParameterEnum } from '@/router/router.enum'

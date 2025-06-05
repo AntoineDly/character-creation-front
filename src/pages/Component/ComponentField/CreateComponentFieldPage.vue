@@ -1,6 +1,6 @@
 <template>
+  <h1>Créer un champ au composant</h1>
   <template v-if="isLoaded">
-    <h1>Créer un champ au composant</h1>
     <form @submit.prevent="handleSubmit">
       <label for="parameters">Paramètre</label>
       <select id="parameters" v-model="formData.parameterId">
@@ -24,7 +24,7 @@ import { ParameterDtoInterface } from '@/pages/Parameter/parameter.interface'
 import { getParameters } from '@/pages/Parameter/parameter.service'
 import { useRoute, useRouter } from 'vue-router'
 import { RouteNameComponentEnum } from '@/router/router.enum'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { CreateComponentFieldFormInterface } from '@/pages/Component/ComponentField/componentField.interface'
 import { createComponentField } from '@/pages/Component/ComponentField/componentField.service'
 

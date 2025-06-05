@@ -1,6 +1,6 @@
 <template>
+  <h1>Créer une catégorie</h1>
   <template v-if="isLoaded">
-    <h1>Créer une catégorie</h1>
     <form @submit.prevent="handleSubmit">
       <label for="name">Nom de catégorie</label>
       <input id="name" v-model="formData.name" type="text" placeholder="Nom de catégorie" />
@@ -17,7 +17,7 @@ import { ref, Ref } from 'vue'
 import { RouteNameCategoryEnum } from '@/router/router.enum'
 import { CreateCategoryFormInterface } from './category.interface'
 import { createCategory } from './category.service'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 
 const isLoaded: Ref<boolean> = ref(true)
 const router = useRouter()

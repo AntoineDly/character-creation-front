@@ -1,11 +1,8 @@
 <template>
+  <router-link :to="{ name: RouteNamePlayableItemEnum.CREATE_PLAYABLE_ITEM }"> Créer un objet jouable </router-link>
+  <h1>Liste des objets jouables</h1>
   <template v-if="isLoaded">
-    <router-link :to="{ name: RouteNamePlayableItemEnum.CREATE_PLAYABLE_ITEM }"> Créer un objet jouable </router-link>
-    <h1>Liste des objets jouables</h1>
-    <PaginationComponent
-      :pagination-dto="playableItems.paginationDto"
-      :route="RouteNamePlayableItemEnum.PLAYABLE_ITEMS"
-    />
+    <PaginationComponent v-bind="playableItems.paginationDto" />
     <div v-for="playableItem in playableItems.dtos" :key="playableItem.id">
       {{ playableItem.id }}
     </div>
@@ -16,7 +13,7 @@
 </template>
 <script setup lang="ts">
 import { onBeforeMount, ref, Ref } from 'vue'
-import LoadingComponent from '@/components/LoadingComponent.vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { RouteNamePlayableItemEnum } from '@/router/router.enum'
 import { PlayableItemsDtoInterface } from './playableItem.interface'
 import { getPlayableItems } from './playableItem.service'
