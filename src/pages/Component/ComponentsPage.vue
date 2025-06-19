@@ -20,20 +20,30 @@
   </template>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, ref, Ref } from 'vue'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
-import { ComponentsDtoInterface } from './component.interface'
-import { getComponents } from './component.service'
-import { RouteNameComponentEnum, RouteNameComponentFieldEnum } from '@/router/router.enum'
+import { UsePaginationInterface } from '@/components/Pagination/pagination.interface'
 import PaginationComponent from '@/components/Pagination/PaginationComponent.vue'
+import { usePagination } from '@/components/Pagination/UsePagination'
+import { ComponentsDtoInterface } from '@/pages/Component/component.interface'
+import { getComponents } from '@/pages/Component/component.service'
+import { RouteNameComponentEnum, RouteNameComponentFieldEnum } from '@/router/router.enum'
 import { defaultCollectionValues } from '@/utils'
+import { ref, Ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
 
 const components: Ref<ComponentsDtoInterface> = ref(defaultCollectionValues)
 
-onBeforeMount(async () => {
-  components.value = await getComponents()
-  isLoaded.value = true
-})
+const route = useRoute()
+const pagination: UsePaginationInterface = usePagination()
+watch(
+  () => route.query,
+  async () => {
+    isLoaded.value = false
+    components.value = await getComponents(pagination.getQueryParamsFromRoute(route))
+    isLoaded.value = true
+  },
+  { deep: true, immediate: true },
+)
 </script>

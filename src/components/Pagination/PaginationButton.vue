@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { PaginationButtonInterface, UsePaginationInterface } from './pagination.interface'
-import { usePagination } from './UsePagination'
+import { PaginationButtonInterface, UsePaginationInterface } from '@/components/Pagination/pagination.interface'
+import { usePagination } from '@/components/Pagination/UsePagination'
 
 const props = defineProps<PaginationButtonInterface>()
 const pagination: UsePaginationInterface = usePagination()

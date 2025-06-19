@@ -13,20 +13,30 @@
   </template>
 </template>
 <script setup lang="ts">
-import { CategoriesDtoInterface } from './category.interface'
-import { onBeforeMount, ref, Ref } from 'vue'
-import { getCategories } from './category.service'
-import { RouteNameCategoryEnum } from '@/router/router.enum'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
-import { defaultCollectionValues } from '@/utils'
+import { UsePaginationInterface } from '@/components/Pagination/pagination.interface'
 import PaginationComponent from '@/components/Pagination/PaginationComponent.vue'
+import { usePagination } from '@/components/Pagination/UsePagination'
+import { CategoriesDtoInterface } from '@/pages/Category/category.interface'
+import { getCategories } from '@/pages/Category/category.service'
+import { RouteNameCategoryEnum } from '@/router/router.enum'
+import { defaultCollectionValues } from '@/utils'
+import { ref, Ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
 
 const categories: Ref<CategoriesDtoInterface> = ref(defaultCollectionValues)
 
-onBeforeMount(async () => {
-  categories.value = await getCategories()
-  isLoaded.value = true
-})
+const route = useRoute()
+const pagination: UsePaginationInterface = usePagination()
+watch(
+  () => route.query,
+  async () => {
+    isLoaded.value = false
+    categories.value = await getCategories(pagination.getQueryParamsFromRoute(route))
+    isLoaded.value = true
+  },
+  { deep: true, immediate: true },
+)
 </script>

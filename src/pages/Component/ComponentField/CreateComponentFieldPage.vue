@@ -19,14 +19,14 @@
   </template>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, ref, Ref } from 'vue'
-import { ParameterDtoInterface } from '@/pages/Parameter/parameter.interface'
-import { getParameters } from '@/pages/Parameter/parameter.service'
-import { useRoute, useRouter } from 'vue-router'
-import { RouteNameComponentEnum } from '@/router/router.enum'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { CreateComponentFieldFormInterface } from '@/pages/Component/ComponentField/componentField.interface'
 import { createComponentField } from '@/pages/Component/ComponentField/componentField.service'
+import { ParameterDtoInterface } from '@/pages/Parameter/parameter.interface'
+import { getParameters } from '@/pages/Parameter/parameter.service'
+import { RouteNameComponentEnum } from '@/router/router.enum'
+import { onBeforeMount, ref, Ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
 const route = useRoute()
@@ -40,6 +40,8 @@ const formData: Ref<CreateComponentFieldFormInterface> = ref({
   value: '',
 })
 
+// @todo move page to ComponentPage section and enforcing the componentId when creating an item from a component
+// @todo do get all parameters from user with only id and name
 onBeforeMount(async () => {
   parameters.value = await getParameters()
   isLoaded.value = true

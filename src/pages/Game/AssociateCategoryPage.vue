@@ -17,15 +17,16 @@
   </template>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, ref, Ref } from 'vue'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { CategoryDtoInterface } from '@/pages/Category/category.interface'
 import { getCategories } from '@/pages/Category/category.service'
-import { useRoute, useRouter } from 'vue-router'
-import { AssociateCategoryFormInterface } from './game.interface'
+import { AssociateCategoryFormInterface } from '@/pages/Game/game.interface'
+import { associateCategory } from '@/pages/Game/game.service'
 import { RouteNameGameEnum } from '@/router/router.enum'
-import { associateCategory } from './game.service'
-import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
+import { onBeforeMount, ref, Ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
+// @todo do get all categories that aren't in the game from user with only id and name
 const isLoaded: Ref<boolean> = ref(false)
 const route = useRoute()
 const router = useRouter()

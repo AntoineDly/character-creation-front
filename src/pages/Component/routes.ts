@@ -1,5 +1,5 @@
-import { RouteRecordRaw } from 'vue-router'
 import { RouteNameComponentEnum } from '@/router/router.enum'
+import { RouteRecordRaw } from 'vue-router'
 
 export const componentRoutes: RouteRecordRaw[] = [
   {

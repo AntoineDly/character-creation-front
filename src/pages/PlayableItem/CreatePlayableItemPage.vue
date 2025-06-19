@@ -24,16 +24,16 @@
   </template>
 </template>
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { RouteNamePlayableItemEnum } from '@/router/router.enum'
-import { getItems } from '@/pages/Item/item.service'
-import { createPlayableItem } from './playableItem.service'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
-import { onBeforeMount, ref, Ref } from 'vue'
-import { ItemDtoInterface } from '@/pages/Item/item.interface'
 import { GameDtoInterface } from '@/pages/Game/game.interface'
 import { getGames } from '@/pages/Game/game.service'
-import { CreatePlayableItemFormInterface } from './playableItem.interface'
+import { ItemDtoInterface } from '@/pages/Item/item.interface'
+import { getItems } from '@/pages/Item/item.service'
+import { CreatePlayableItemFormInterface } from '@/pages/PlayableItem/playableItem.interface'
+import { createPlayableItem } from '@/pages/PlayableItem/playableItem.service'
+import { RouteNamePlayableItemEnum } from '@/router/router.enum'
+import { onBeforeMount, ref, Ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
 const router = useRouter()
@@ -45,6 +45,8 @@ const formData: Ref<CreatePlayableItemFormInterface> = ref({
   gameId: '',
 })
 
+// @todo do like component field => move page to GamePage section and enforcing the gameId when creating a playableItem from a game
+// @todo do get all items from user with only id and name
 onBeforeMount(async () => {
   items.value = await getItems()
   games.value = await getGames()

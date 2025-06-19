@@ -1,11 +1,10 @@
-import { RouteRecordRaw } from 'vue-router'
 import { RouteNameNotFoundEnum } from '@/router/router.enum'
-import NotFoundPage from './NotFoundPage.vue'
+import { RouteRecordRaw } from 'vue-router'
 
 export const notFoundRoutes: RouteRecordRaw[] = [
   {
     path: '/:catchAll(.*)',
-    component: NotFoundPage,
+    component: () => import('@/pages/NotFound/NotFoundPage.vue'),
     name: RouteNameNotFoundEnum.NOT_FOUND,
     alias: '/not-found',
   },

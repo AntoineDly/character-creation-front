@@ -24,16 +24,16 @@
   </template>
 </template>
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { RouteNameLinkedItemEnum } from '@/router/router.enum'
-import { getPlayableItems } from '@/pages/PlayableItem/playableItem.service'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
-import { onBeforeMount, ref, Ref } from 'vue'
 import { CharacterDtoInterface } from '@/pages/Character/character.interface'
 import { getCharacters } from '@/pages/Character/character.service'
-import { PlayableItemDtoInterface } from '@/pages/PlayableItem/playableItem.interface'
 import { CreateLinkedItemFormInterface } from '@/pages/LinkedItem/linkedItem.interface'
 import { createLinkedItem } from '@/pages/LinkedItem/linkedItem.service'
+import { PlayableItemDtoInterface } from '@/pages/PlayableItem/playableItem.interface'
+import { getPlayableItems } from '@/pages/PlayableItem/playableItem.service'
+import { RouteNameLinkedItemEnum } from '@/router/router.enum'
+import { onBeforeMount, ref, Ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
 const router = useRouter()
@@ -45,6 +45,8 @@ const formData: Ref<CreateLinkedItemFormInterface> = ref({
   characterId: '',
 })
 
+// @todo do like component field => move page to CharacterPage section and enforcing the characterId when creating a linkedItem from a character
+// @todo do get all playableItems from user with only id and name
 onBeforeMount(async () => {
   playableItems.value = await getPlayableItems()
   characters.value = await getCharacters()

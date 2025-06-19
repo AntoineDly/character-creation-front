@@ -1,8 +1,9 @@
+import { PaginationQueryParamsInterface } from '@/components/Pagination/pagination.interface'
 import { authenticatedAxiosInstance } from '@/config/axios'
-import { CreatePlayableItemFormInterface, PlayableItemsDtoInterface } from './playableItem.interface'
+import { CreatePlayableItemFormInterface, PlayableItemsDtoInterface } from '@/pages/PlayableItem/playableItem.interface'
 
-async function getPlayableItems(): Promise<PlayableItemsDtoInterface> {
-  const response = await authenticatedAxiosInstance.get('/playable_items')
+async function getPlayableItems(pagination: PaginationQueryParamsInterface): Promise<PlayableItemsDtoInterface> {
+  const response = await authenticatedAxiosInstance.get('/playable_items', { params: pagination })
   return response.data.data
 }
 
@@ -10,4 +11,4 @@ async function createPlayableItem(data: CreatePlayableItemFormInterface): Promis
   await authenticatedAxiosInstance.post('/playable_items', data)
 }
 
-export { getPlayableItems, createPlayableItem }
+export { createPlayableItem, getPlayableItems }

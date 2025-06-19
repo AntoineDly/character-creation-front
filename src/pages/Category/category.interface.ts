@@ -1,5 +1,5 @@
-import { LinkedItemForCharacterDto } from '@/pages/LinkedItem/linkedItem.interface'
 import { PaginationDtoInterface } from '@/components/Pagination/pagination.interface'
+import { LinkedItemForCharacterDto } from '@/pages/LinkedItem/linkedItem.interface'
 
 export interface CategoryDtoInterface {
   id: string

@@ -1,7 +1,7 @@
-import { RouteLocationNormalizedLoadedGeneric } from 'vue-router'
-import { ref, Ref } from 'vue'
-import { PaginationQueryParamsInterface, UsePaginationInterface } from './pagination.interface'
+import { PaginationQueryParamsInterface, UsePaginationInterface } from '@/components/Pagination/pagination.interface'
 import router from '@/router/router'
+import { ref, Ref } from 'vue'
+import { RouteLocationNormalizedLoadedGeneric } from 'vue-router'
 
 const perPage: Ref<number> = ref(15)
 const page: Ref<number> = ref(1)

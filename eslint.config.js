@@ -4,6 +4,11 @@ import eslintPluginVue from 'eslint-plugin-vue'
 import globals from 'globals'
 import typescriptEslint from 'typescript-eslint'
 import eslintConfigPrettier from 'eslint-config-prettier/flat'
+import { includeIgnoreFile } from "@eslint/compat";
+import { fileURLToPath } from "node:url";
+
+const gitignorePath = fileURLToPath(new URL(".gitignore", import.meta.url));
+const prettierIgnorePath = fileURLToPath(new URL(".prettierignore", import.meta.url));
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default defineConfig([
@@ -14,7 +19,6 @@ export default defineConfig([
       ...eslintPluginVue.configs['flat/recommended'],
     ],
     files: ['**/*.{mjs,cjs,js,vue,ts}'],
-    ignores: ['**/*.config.js', 'node_modules', 'dist'],
     languageOptions: {
       parserOptions: {
         parser: typescriptEslint.parser,
@@ -27,4 +31,6 @@ export default defineConfig([
     },
   },
   eslintConfigPrettier,
+  includeIgnoreFile(gitignorePath, "Imported .gitignore patterns"),
+  includeIgnoreFile(prettierIgnorePath, "Imported .prettierignore patterns"),
 ])

@@ -15,12 +15,12 @@
 </template>
 
 <script setup lang="ts">
-import { login } from './auth.service'
-import { useRouter } from 'vue-router'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
+import { LoginFormInterface } from '@/pages/Auth/auth.interface'
+import { login } from '@/pages/Auth/auth.service'
 import { RouteNameHomeEnum } from '@/router/router.enum'
 import { Ref, ref } from 'vue'
-import { LoginFormInterface } from './auth.interface'
-import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
+import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(true)
 const router = useRouter()

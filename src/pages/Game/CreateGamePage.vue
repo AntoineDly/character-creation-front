@@ -14,12 +14,13 @@
   </template>
 </template>
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { ref, Ref } from 'vue'
 import { RouteNameGameEnum } from '@/router/router.enum'
-import { createGame } from './game.service'
-import { CreateGameFormInterface } from './game.interface'
+import { ref, Ref } from 'vue'
+import { useRouter } from 'vue-router'
+
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
+import { CreateGameFormInterface } from '@/pages/Game/game.interface'
+import { createGame } from '@/pages/Game/game.service'
 
 const isLoaded: Ref<boolean> = ref(true)
 const router = useRouter()

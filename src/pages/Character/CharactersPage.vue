@@ -21,17 +21,18 @@
   </template>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, ref, Ref } from 'vue'
-import { getCharactersWithGame } from './character.service'
-import { CharacterWithGameDtoInterface } from './character.interface'
-import { RouteNameCharacterEnum } from '@/router/router.enum'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
+import { CharacterWithGameDtoInterface } from '@/pages/Character/character.interface'
+import { getCharactersWithGame } from '@/pages/Character/character.service'
+import { RouteNameCharacterEnum } from '@/router/router.enum'
+import { onBeforeMount, ref, Ref } from 'vue'
 
 const isLoaded: Ref<boolean> = ref(false)
 
 const characters: Ref<CharacterWithGameDtoInterface[]> = ref([])
 
 onBeforeMount(async () => {
+  // add pagination
   characters.value = await getCharactersWithGame()
   isLoaded.value = true
 })

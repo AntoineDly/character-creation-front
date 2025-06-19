@@ -12,12 +12,12 @@
   </template>
 </template>
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { ref, Ref } from 'vue'
-import { RouteNameCategoryEnum } from '@/router/router.enum'
-import { CreateCategoryFormInterface } from './category.interface'
-import { createCategory } from './category.service'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
+import { CreateCategoryFormInterface } from '@/pages/Category/category.interface'
+import { createCategory } from '@/pages/Category/category.service'
+import { RouteNameCategoryEnum } from '@/router/router.enum'
+import { ref, Ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(true)
 const router = useRouter()

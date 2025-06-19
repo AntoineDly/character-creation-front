@@ -10,11 +10,11 @@
   </template>
 </template>
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { RouteNameComponentEnum } from '@/router/router.enum'
-import { createComponent } from '@/pages/Component/component.service'
-import { ref, Ref } from 'vue'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
+import { createComponent } from '@/pages/Component/component.service'
+import { RouteNameComponentEnum } from '@/router/router.enum'
+import { ref, Ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(true)
 const router = useRouter()

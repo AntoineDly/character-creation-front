@@ -12,20 +12,30 @@
   </template>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, ref, Ref } from 'vue'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
-import { RouteNameItemEnum } from '@/router/router.enum'
-import { ItemsDtoInterface } from './item.interface'
-import { getItems } from './item.service'
+import { UsePaginationInterface } from '@/components/Pagination/pagination.interface'
 import PaginationComponent from '@/components/Pagination/PaginationComponent.vue'
+import { usePagination } from '@/components/Pagination/UsePagination'
+import { ItemsDtoInterface } from '@/pages/Item/item.interface'
+import { getItems } from '@/pages/Item/item.service'
+import { RouteNameItemEnum } from '@/router/router.enum'
 import { defaultCollectionValues } from '@/utils'
+import { ref, Ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
 
 const items: Ref<ItemsDtoInterface> = ref(defaultCollectionValues)
 
-onBeforeMount(async () => {
-  items.value = await getItems()
-  isLoaded.value = true
-})
+const route = useRoute()
+const pagination: UsePaginationInterface = usePagination()
+watch(
+  () => route.query,
+  async () => {
+    isLoaded.value = false
+    items.value = await getItems(pagination.getQueryParamsFromRoute(route))
+    isLoaded.value = true
+  },
+  { deep: true, immediate: true },
+)
 </script>

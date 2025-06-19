@@ -25,11 +25,11 @@
   </template>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, ref, Ref } from 'vue'
-import { getCharacter } from './character.service'
-import { CharacterWithLinkedItemsDtoInterface } from './character.interface'
-import { useRoute } from 'vue-router'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
+import { CharacterWithLinkedItemsDtoInterface } from '@/pages/Character/character.interface'
+import { getCharacter } from '@/pages/Character/character.service'
+import { onBeforeMount, ref, Ref } from 'vue'
+import { useRoute } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
 const route = useRoute()

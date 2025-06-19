@@ -1,6 +1,6 @@
-import { RouteRecordRaw } from 'vue-router'
 import { useAuthStore } from '@/pages/Auth/authStore'
 import { RouteNameDashboardEnum, RouteNameHomeEnum } from '@/router/router.enum'
+import { RouteRecordRaw } from 'vue-router'
 
 export const homeRoutes: RouteRecordRaw[] = [
   {

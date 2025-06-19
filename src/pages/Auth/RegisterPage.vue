@@ -22,12 +22,12 @@
 </template>
 
 <script setup lang="ts">
-import { register } from './auth.service'
-import { useRouter } from 'vue-router'
+import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
+import { RegisterFormInterface } from '@/pages/Auth/auth.interface'
+import { register } from '@/pages/Auth/auth.service'
 import { RouteNameHomeEnum } from '@/router/router.enum'
 import { Ref, ref } from 'vue'
-import { RegisterFormInterface } from './auth.interface'
-import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
+import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(true)
 const router = useRouter()

@@ -22,7 +22,9 @@
 </template>
 
 <script setup lang="ts">
+import { logout } from '@/pages/Auth/auth.service'
 import { useAuthStore } from '@/pages/Auth/authStore'
+import router from '@/router/router'
 import {
   RouteNameAuthEnum,
   RouteNameCategoryEnum,
@@ -35,8 +37,6 @@ import {
   RouteNameParameterEnum,
   RouteNamePlayableItemEnum,
 } from '@/router/router.enum'
-import router from '@/router/router'
-import { logout } from '@/pages/Auth/auth.service'
 
 const authStore = useAuthStore()
 

@@ -1,5 +1,5 @@
-import axios, { InternalAxiosRequestConfig } from 'axios'
 import { useAuthStore } from '@/pages/Auth/authStore'
+import axios, { InternalAxiosRequestConfig } from 'axios'
 
 const baseAxiosInstanceConfig = {
   baseURL: 'http://127.0.0.1:8000/api',

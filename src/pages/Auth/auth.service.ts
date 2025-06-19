@@ -1,6 +1,6 @@
 import { authenticatedAxiosInstance, unauthenticatedAxiosInstance } from '@/config/axios'
-import { useAuthStore } from './authStore'
-import { LoginFormInterface, RegisterFormInterface } from './auth.interface'
+import { LoginFormInterface, RegisterFormInterface } from '@/pages/Auth/auth.interface'
+import { useAuthStore } from '@/pages/Auth/authStore'
 
 async function register(data: RegisterFormInterface) {
   await unauthenticatedAxiosInstance.post('/register', data)
@@ -19,4 +19,4 @@ async function logout() {
   authStore.clearToken()
 }
 
-export { register, login, logout }
+export { login, logout, register }

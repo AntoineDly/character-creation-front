@@ -24,16 +24,16 @@
   </template>
 </template>
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { RouteNameItemEnum } from '@/router/router.enum'
-import { getComponents } from '@/pages/Component/component.service'
-import { createItem } from './item.service'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
-import { onBeforeMount, ref, Ref } from 'vue'
-import { ComponentDtoInterface } from '@/pages/Component/component.interface'
 import { CategoryDtoInterface } from '@/pages/Category/category.interface'
 import { getCategories } from '@/pages/Category/category.service'
-import { CreateItemFormInterface } from './item.interface'
+import { ComponentDtoInterface } from '@/pages/Component/component.interface'
+import { getComponents } from '@/pages/Component/component.service'
+import { CreateItemFormInterface } from '@/pages/Item/item.interface'
+import { createItem } from '@/pages/Item/item.service'
+import { RouteNameItemEnum } from '@/router/router.enum'
+import { onBeforeMount, ref, Ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
 const router = useRouter()
@@ -45,6 +45,8 @@ const formData: Ref<CreateItemFormInterface> = ref({
   categoryId: '',
 })
 
+// @todo do like component field => move page to ComponentPage section and enforcing the componentId when creating an item from a component
+// @todo do get all categories from user with only id and name
 onBeforeMount(async () => {
   components.value = await getComponents()
   categories.value = await getCategories()

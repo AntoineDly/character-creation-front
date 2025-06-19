@@ -29,12 +29,12 @@
   </template>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, ref, Ref } from 'vue'
-import { getGame } from './game.service'
-import { GameWithCategoriesAndPlayableItemsDtoInterface } from './game.interface'
-import { useRoute } from 'vue-router'
-import { RouteNameGameEnum } from '@/router/router.enum'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
+import { GameWithCategoriesAndPlayableItemsDtoInterface } from '@/pages/Game/game.interface'
+import { getGame } from '@/pages/Game/game.service'
+import { RouteNameGameEnum } from '@/router/router.enum'
+import { onBeforeMount, ref, Ref } from 'vue'
+import { useRoute } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
 const route = useRoute()

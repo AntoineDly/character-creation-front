@@ -1,2 +1,14 @@
-dist
 nodes_modules
+package.json
+package-lock.json
+tsconfig.json
+.prettierrc
+.prettierignore
+README.md
+public
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+**/*.config.js
+**/*.config.ts

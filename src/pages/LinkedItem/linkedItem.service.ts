@@ -1,8 +1,9 @@
+import { PaginationQueryParamsInterface } from '@/components/Pagination/pagination.interface'
 import { authenticatedAxiosInstance } from '@/config/axios'
-import { CreateLinkedItemFormInterface, LinkedItemsDtoInterface } from './linkedItem.interface'
+import { CreateLinkedItemFormInterface, LinkedItemsDtoInterface } from '@/pages/LinkedItem/linkedItem.interface'
 
-async function getLinkedItems(): Promise<LinkedItemsDtoInterface> {
-  const response = await authenticatedAxiosInstance.get('/linked_items')
+async function getLinkedItems(pagination: PaginationQueryParamsInterface): Promise<LinkedItemsDtoInterface> {
+  const response = await authenticatedAxiosInstance.get('/linked_items', { params: pagination })
   return response.data.data
 }
 
@@ -10,4 +11,4 @@ async function createLinkedItem(data: CreateLinkedItemFormInterface): Promise<vo
   await authenticatedAxiosInstance.post('/linked_items', data)
 }
 
-export { getLinkedItems, createLinkedItem }
+export { createLinkedItem, getLinkedItems }

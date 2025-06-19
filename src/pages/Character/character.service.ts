@@ -1,13 +1,14 @@
+import { PaginationQueryParamsInterface } from '@/components/Pagination/pagination.interface'
 import { authenticatedAxiosInstance } from '@/config/axios'
 import {
   CharacterDtoInterface,
   CharacterWithGameDtoInterface,
   CharacterWithLinkedItemsDtoInterface,
   CreateCharacterFormInterface,
-} from './character.interface'
+} from '@/pages/Character/character.interface'
 
-async function getCharacters(): Promise<CharacterDtoInterface[]> {
-  const response = await authenticatedAxiosInstance.get('/characters')
+async function getCharacters(pagination: PaginationQueryParamsInterface): Promise<CharacterDtoInterface[]> {
+  const response = await authenticatedAxiosInstance.get('/characters', { params: pagination })
   return response.data.data.dtos
 }
 
@@ -25,4 +26,4 @@ async function createCharacter(data: CreateCharacterFormInterface): Promise<void
   await authenticatedAxiosInstance.post('/characters', data)
 }
 
-export { getCharacters, getCharacter, getCharactersWithGame, createCharacter }
+export { createCharacter, getCharacter, getCharacters, getCharactersWithGame }

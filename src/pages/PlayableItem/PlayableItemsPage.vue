@@ -12,20 +12,30 @@
   </template>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, ref, Ref } from 'vue'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
-import { RouteNamePlayableItemEnum } from '@/router/router.enum'
-import { PlayableItemsDtoInterface } from './playableItem.interface'
-import { getPlayableItems } from './playableItem.service'
+import { UsePaginationInterface } from '@/components/Pagination/pagination.interface'
 import PaginationComponent from '@/components/Pagination/PaginationComponent.vue'
+import { usePagination } from '@/components/Pagination/UsePagination'
+import { PlayableItemsDtoInterface } from '@/pages/PlayableItem/playableItem.interface'
+import { getPlayableItems } from '@/pages/PlayableItem/playableItem.service'
+import { RouteNamePlayableItemEnum } from '@/router/router.enum'
 import { defaultCollectionValues } from '@/utils'
+import { ref, Ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
 
 const playableItems: Ref<PlayableItemsDtoInterface> = ref(defaultCollectionValues)
 
-onBeforeMount(async () => {
-  playableItems.value = await getPlayableItems()
-  isLoaded.value = true
-})
+const route = useRoute()
+const pagination: UsePaginationInterface = usePagination()
+watch(
+  () => route.query,
+  async () => {
+    isLoaded.value = false
+    playableItems.value = await getPlayableItems(pagination.getQueryParamsFromRoute(route))
+    isLoaded.value = true
+  },
+  { deep: true, immediate: true },
+)
 </script>

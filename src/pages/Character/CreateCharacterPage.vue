@@ -17,15 +17,15 @@
   </template>
 </template>
 <script setup lang="ts">
-import { onBeforeMount, ref, Ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { RouteNameCharacterEnum } from '@/router/router.enum'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
+import { CreateCharacterFormInterface } from '@/pages/Character/character.interface'
+import { createCharacter } from '@/pages/Character/character.service'
 import { GameDtoInterface } from '@/pages/Game/game.interface'
 import { getGames } from '@/pages/Game/game.service'
-import { CreateCharacterFormInterface } from './character.interface'
-import { createCharacter } from './character.service'
-
+import { RouteNameCharacterEnum } from '@/router/router.enum'
+import { onBeforeMount, ref, Ref } from 'vue'
+import { useRouter } from 'vue-router'
+// @todo do like component field => move page to games section and enforcing the gameId when creating a character from a game
 const isLoaded: Ref<boolean> = ref(false)
 const router = useRouter()
 

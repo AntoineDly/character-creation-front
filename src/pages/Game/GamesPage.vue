@@ -27,25 +27,23 @@
   </template>
 </template>
 <script setup lang="ts">
-import { RouteNameGameEnum } from '@/router/router.enum'
-import { GamesDtoInterface } from './game.interface'
-import { ref, Ref, watch } from 'vue'
-import { getGames } from './game.service'
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
-import PaginationComponent from '@/components/Pagination/PaginationComponent.vue'
-import { defaultCollectionValues } from '@/utils'
-import { usePagination } from '@/components/Pagination/UsePagination'
-import { useRoute } from 'vue-router'
 import { UsePaginationInterface } from '@/components/Pagination/pagination.interface'
+import PaginationComponent from '@/components/Pagination/PaginationComponent.vue'
+import { usePagination } from '@/components/Pagination/UsePagination'
+import { GamesDtoInterface } from '@/pages/Game/game.interface'
+import { getGames } from '@/pages/Game/game.service'
+import { RouteNameGameEnum } from '@/router/router.enum'
+import { defaultCollectionValues } from '@/utils'
+import { ref, Ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
 
-const route = useRoute()
-
 const games: Ref<GamesDtoInterface> = ref(defaultCollectionValues)
 
+const route = useRoute()
 const pagination: UsePaginationInterface = usePagination()
-
 watch(
   () => route.query,
   async () => {

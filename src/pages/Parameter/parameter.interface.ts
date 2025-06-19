@@ -1,5 +1,5 @@
-import { TypeParameterEnum } from '@/pages/Parameter/parameter.enum'
 import { PaginationDtoInterface } from '@/components/Pagination/pagination.interface'
+import { TypeParameterEnum } from '@/pages/Parameter/parameter.enum'
 
 export interface ParameterDtoInterface {
   id: string

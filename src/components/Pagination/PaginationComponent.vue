@@ -27,10 +27,9 @@ import {
   PaginationDtoInterface,
   PaginationPerPageFormDataInterface,
   UsePaginationInterface,
-} from './pagination.interface'
-import { Ref, ref } from 'vue'
-import PaginationButton from './PaginationButton.vue'
-import { usePagination } from './UsePagination'
+} from '@/components/Pagination/pagination.interface'
+import { usePagination } from '@/components/Pagination/UsePagination'
+import { ref, Ref } from 'vue'
 
 const props = defineProps<PaginationDtoInterface>()
 const pagination: UsePaginationInterface = usePagination()

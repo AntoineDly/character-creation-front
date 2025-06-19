@@ -1,5 +1,5 @@
-import { TypeParameterEnum } from '@/pages/Parameter/parameter.enum'
 import { TypeFieldEnum } from '@/components/Field/field.enum'
+import { TypeParameterEnum } from '@/pages/Parameter/parameter.enum'
 
 export interface FieldDtoInterface {
   id: string

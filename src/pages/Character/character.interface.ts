@@ -1,5 +1,5 @@
-import { GameDtoInterface } from '@/pages/Game/game.interface'
 import { CategoryForCharacterDtoInterface } from '@/pages/Category/category.interface'
+import { GameDtoInterface } from '@/pages/Game/game.interface'
 
 export interface CharacterDtoInterface {
   id: string
