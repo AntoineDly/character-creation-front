@@ -1,25 +1,25 @@
 <template>
-  <router-link
+  <RouterLink
     :to="{
       name: RouteNameGameEnum.CREATE_GAME,
     }"
   >
     Créer un jeu
-  </router-link>
+  </RouterLink>
   <h1>Liste des jeux</h1>
   <template v-if="isLoaded">
     <PaginationComponent v-bind="games.paginationDto" />
     <div v-for="game in games.dtos" :key="game.id">
       {{ game.id }}
       {{ game.name }}
-      <router-link
+      <RouterLink
         :to="{
           name: RouteNameGameEnum.GAME,
           params: { gameId: game.id },
         }"
       >
         Voir le jeu
-      </router-link>
+      </RouterLink>
     </div>
   </template>
   <template v-else>

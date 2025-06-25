@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: RouteNamePlayableItemEnum.CREATE_PLAYABLE_ITEM }"> Créer un objet jouable </router-link>
+  <RouterLink :to="{ name: RouteNamePlayableItemEnum.CREATE_PLAYABLE_ITEM }"> Créer un objet jouable </RouterLink>
   <h1>Liste des objets jouables</h1>
   <template v-if="isLoaded">
     <PaginationComponent v-bind="playableItems.paginationDto" />

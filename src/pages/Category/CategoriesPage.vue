@@ -6,7 +6,7 @@
       {{ category.id }}
       {{ category.name }}
     </div>
-    <router-link :to="{ name: RouteNameCategoryEnum.CREATE_CATEGORY }"> Créer une nouvelle catégorie </router-link>
+    <RouterLink :to="{ name: RouteNameCategoryEnum.CREATE_CATEGORY }"> Créer une nouvelle catégorie </RouterLink>
   </template>
   <template v-else>
     <LoadingComponent />

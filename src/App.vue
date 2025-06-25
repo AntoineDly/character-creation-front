@@ -1,23 +1,23 @@
 <template>
   <nav v-if="!authStore.isAuthenticated">
-    <router-link :to="{ name: RouteNameHomeEnum.HOME }"> Page principal </router-link>
-    <router-link :to="{ name: RouteNameAuthEnum.REGISTER }"> S'inscrire </router-link>
-    <router-link :to="{ name: RouteNameAuthEnum.LOGIN }"> Se connecter </router-link>
+    <RouterLink :to="{ name: RouteNameHomeEnum.HOME }"> Page principal </RouterLink>
+    <RouterLink :to="{ name: RouteNameAuthEnum.REGISTER }"> S'inscrire </RouterLink>
+    <RouterLink :to="{ name: RouteNameAuthEnum.LOGIN }"> Se connecter </RouterLink>
   </nav>
   <nav v-else>
-    <router-link :to="{ name: RouteNameHomeEnum.HOME }"> Page principal </router-link>
-    <router-link :to="{ name: RouteNameCharacterEnum.CHARACTERS }"> Liste des personnages </router-link>
-    <router-link :to="{ name: RouteNameGameEnum.GAMES }"> Liste des jeux </router-link>
-    <router-link :to="{ name: RouteNameCategoryEnum.CATEGORIES }"> Liste des catégories </router-link>
-    <router-link :to="{ name: RouteNameComponentEnum.COMPONENTS }"> Liste des composants </router-link>
-    <router-link :to="{ name: RouteNameItemEnum.ITEMS }"> Liste des objets </router-link>
-    <router-link :to="{ name: RouteNamePlayableItemEnum.PLAYABLE_ITEMS }"> Liste des objets jouables </router-link>
-    <router-link :to="{ name: RouteNameLinkedItemEnum.LINKED_ITEMS }"> Liste des objets liés </router-link>
-    <router-link :to="{ name: RouteNameParameterEnum.PARAMETERS }"> Liste des paramètres </router-link>
+    <RouterLink :to="{ name: RouteNameHomeEnum.HOME }"> Page principal </RouterLink>
+    <RouterLink :to="{ name: RouteNameCharacterEnum.CHARACTERS }"> Liste des personnages </RouterLink>
+    <RouterLink :to="{ name: RouteNameGameEnum.GAMES }"> Liste des jeux </RouterLink>
+    <RouterLink :to="{ name: RouteNameCategoryEnum.CATEGORIES }"> Liste des catégories </RouterLink>
+    <RouterLink :to="{ name: RouteNameComponentEnum.COMPONENTS }"> Liste des composants </RouterLink>
+    <RouterLink :to="{ name: RouteNameItemEnum.ITEMS }"> Liste des objets </RouterLink>
+    <RouterLink :to="{ name: RouteNamePlayableItemEnum.PLAYABLE_ITEMS }"> Liste des objets jouables </RouterLink>
+    <RouterLink :to="{ name: RouteNameLinkedItemEnum.LINKED_ITEMS }"> Liste des objets liés </RouterLink>
+    <RouterLink :to="{ name: RouteNameParameterEnum.PARAMETERS }"> Liste des paramètres </RouterLink>
     <button @click="handleLogout">Se déconnecter</button>
   </nav>
   <main>
-    <router-view />
+    <RouterView />
   </main>
 </template>
 

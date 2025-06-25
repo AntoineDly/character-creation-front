@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: RouteNameItemEnum.CREATE_ITEM }"> Créer un objet </router-link>
+  <RouterLink :to="{ name: RouteNameItemEnum.CREATE_ITEM }"> Créer un objet </RouterLink>
   <h1>Liste des objets</h1>
   <template v-if="isLoaded">
     <PaginationComponent v-bind="items.paginationDto" />

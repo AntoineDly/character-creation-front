@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: RouteNameParameterEnum.CREATE_PARAMETER }"> Créer un paramètre </router-link>
+  <RouterLink :to="{ name: RouteNameParameterEnum.CREATE_PARAMETER }"> Créer un paramètre </RouterLink>
   <h1>Liste des paramètres</h1>
   <template v-if="isLoaded">
     <PaginationComponent v-bind="parameters.paginationDto" />

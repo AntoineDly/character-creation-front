@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: RouteNameLinkedItemEnum.CREATE_LINKED_ITEM }"> Créer un objet lié </router-link>
+  <RouterLink :to="{ name: RouteNameLinkedItemEnum.CREATE_LINKED_ITEM }"> Créer un objet lié </RouterLink>
   <h1>Liste des objets liés</h1>
   <template v-if="isLoaded">
     <PaginationComponent v-bind="linkedItems.paginationDto" />

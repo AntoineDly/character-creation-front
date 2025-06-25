@@ -2,11 +2,11 @@
   <div class="pagination">
     <div>
       Pages :
-      <pagination-button :per-page="props.perPage" :page="props.firstPage" />
-      <pagination-button :per-page="props.perPage" :page="props.previousPage" />
-      <pagination-button :per-page="props.perPage" :page="props.currentPage" />
-      <pagination-button :per-page="props.perPage" :page="props.nextPage" />
-      <pagination-button :per-page="props.perPage" :page="props.lastPage" />
+      <PaginationButton :per-page="props.perPage" :page="props.firstPage" />
+      <PaginationButton :per-page="props.perPage" :page="props.previousPage" />
+      <PaginationButton :per-page="props.perPage" :page="props.currentPage" />
+      <PaginationButton :per-page="props.perPage" :page="props.nextPage" />
+      <PaginationButton :per-page="props.perPage" :page="props.lastPage" />
     </div>
     <div>
       <div>Total : {{ props.total }}</div>
@@ -28,6 +28,7 @@ import {
   PaginationPerPageFormDataInterface,
   UsePaginationInterface,
 } from '@/components/Pagination/pagination.interface'
+import PaginationButton from '@/components/Pagination/PaginationButton.vue'
 import { usePagination } from '@/components/Pagination/UsePagination'
 import { ref, Ref } from 'vue'
 

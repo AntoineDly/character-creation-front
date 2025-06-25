@@ -1,19 +1,19 @@
 <template>
-  <router-link :to="{ name: RouteNameCharacterEnum.CREATE_CHARACTER }"> Créer un personnage </router-link>
+  <RouterLink :to="{ name: RouteNameCharacterEnum.CREATE_CHARACTER }"> Créer un personnage </RouterLink>
   <h1>Liste des personnages</h1>
   <template v-if="isLoaded">
     <div v-for="character in characters" :key="character.id">
       {{ character.id }}
       {{ character.gameDto.id }}
       {{ character.gameDto.name }}
-      <router-link
+      <RouterLink
         :to="{
           name: RouteNameCharacterEnum.CHARACTER,
           params: { characterId: character.id },
         }"
       >
         Voir le personnage
-      </router-link>
+      </RouterLink>
     </div>
   </template>
   <template v-else>

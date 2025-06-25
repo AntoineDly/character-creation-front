@@ -1,18 +1,18 @@
 <template>
-  <router-link :to="{ name: RouteNameComponentEnum.CREATE_COMPONENT }"> Créer un composant </router-link>
+  <RouterLink :to="{ name: RouteNameComponentEnum.CREATE_COMPONENT }"> Créer un composant </RouterLink>
   <h1>Liste des composants</h1>
   <template v-if="isLoaded">
     <PaginationComponent v-bind="components.paginationDto" />
     <div v-for="component in components.dtos" :key="component.id">
       {{ component.id }}
-      <router-link
+      <RouterLink
         :to="{
           name: RouteNameComponentFieldEnum.CREATE_COMPONENT_FIELD,
           params: { componentId: component.id },
         }"
       >
         Créer un champ au composant
-      </router-link>
+      </RouterLink>
     </div>
   </template>
   <template v-else>

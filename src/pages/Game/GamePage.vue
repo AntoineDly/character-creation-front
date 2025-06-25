@@ -1,12 +1,12 @@
 <template>
-  <router-link
+  <RouterLink
     :to="{
       name: RouteNameGameEnum.ASSOCIATE_CATEGORY,
       params: { gameId: game.id },
     }"
   >
     Associer une catégorie
-  </router-link>
+  </RouterLink>
   <h1>Jeu</h1>
   <template v-if="isLoaded">
     <p>Id : {{ game.id }}</p>
