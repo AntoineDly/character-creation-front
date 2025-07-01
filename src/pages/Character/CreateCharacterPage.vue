@@ -21,7 +21,7 @@ import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { CreateCharacterFormInterface } from '@/pages/Character/character.interface'
 import { createCharacter } from '@/pages/Character/character.service'
 import { GameDtoInterface } from '@/pages/Game/game.interface'
-import { getGames } from '@/pages/Game/game.service'
+import { getAllGames } from '@/pages/Game/game.service'
 import { RouteNameCharacterEnum } from '@/router/router.enum'
 import { onBeforeMount, ref, Ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -35,7 +35,7 @@ const formData: Ref<CreateCharacterFormInterface> = ref({
 })
 
 onBeforeMount(async () => {
-  games.value = await getGames()
+  games.value = await getAllGames()
   isLoaded.value = true
 })
 

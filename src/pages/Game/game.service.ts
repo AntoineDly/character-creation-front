@@ -2,13 +2,18 @@ import { PaginationQueryParamsInterface } from '@/components/Pagination/paginati
 import { authenticatedAxiosInstance } from '@/config/axios'
 import {
   AssociateCategoryFormInterface,
-  CreateGameFormInterface,
+  CreateGameFormInterface, GameDtoInterface,
   GamesDtoInterface,
   GameWithCategoriesAndPlayableItemsDtoInterface,
 } from '@/pages/Game/game.interface'
 
 async function getGames(pagination: PaginationQueryParamsInterface): Promise<GamesDtoInterface> {
   const response = await authenticatedAxiosInstance.get('/games', { params: pagination })
+  return response.data.data
+}
+
+async function getAllGames(): Promise<GameDtoInterface[]> {
+  const response = await authenticatedAxiosInstance.get('/games_all')
   return response.data.data
 }
 
@@ -25,4 +30,4 @@ async function createGame(data: CreateGameFormInterface): Promise<void> {
   await authenticatedAxiosInstance.post('/games', data)
 }
 
-export { associateCategory, createGame, getGame, getGames }
+export { associateCategory, createGame, getGame, getGames, getAllGames }
