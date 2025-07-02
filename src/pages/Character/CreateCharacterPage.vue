@@ -3,7 +3,7 @@
   <template v-if="isLoaded">
     <form @submit.prevent="handleSubmit">
       <label for="game">Jeu</label>
-      <select id="game" v-model="formData.gameId">
+      <select id="game" v-model="formData.gameId" :disabled="!isGameSelectionDisplayed">
         <option disabled value="">Choisissez un jeu</option>
         <option v-for="game in games" :key="game.id" :value="game.id">
           {{ game.name }}
@@ -21,21 +21,34 @@ import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { CreateCharacterFormInterface } from '@/pages/Character/character.interface'
 import { createCharacter } from '@/pages/Character/character.service'
 import { GameDtoInterface } from '@/pages/Game/game.interface'
-import { getAllGames } from '@/pages/Game/game.service'
+import { getAllGames, getGame } from '@/pages/Game/game.service'
 import { RouteNameCharacterEnum } from '@/router/router.enum'
 import { onBeforeMount, ref, Ref } from 'vue'
 import { useRouter } from 'vue-router'
-// @todo do like component field => move page to games section and enforcing the gameId when creating a character from a game
+
 const isLoaded: Ref<boolean> = ref(false)
+const isGameSelectionDisplayed: Ref<boolean> = ref(true)
 const router = useRouter()
+
+const props = defineProps({
+  gameId: {
+    type: String,
+    default: '',
+  },
+})
 
 const games: Ref<GameDtoInterface[]> = ref([])
 const formData: Ref<CreateCharacterFormInterface> = ref({
-  gameId: '',
+  gameId: props.gameId,
 })
 
 onBeforeMount(async () => {
-  games.value = await getAllGames()
+  if (props.gameId !== '') {
+    isGameSelectionDisplayed.value = false
+    games.value[0] = await getGame(props.gameId)
+  } else {
+    games.value = await getAllGames()
+  }
   isLoaded.value = true
 })
 

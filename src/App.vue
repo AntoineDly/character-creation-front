@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import { logout } from '@/pages/Auth/auth.service'
 import { useAuthStore } from '@/pages/Auth/authStore'
-import router from '@/router/router'
+import index from '@/router'
 import {
   RouteNameAuthEnum,
   RouteNameCategoryEnum,
@@ -42,6 +42,6 @@ const authStore = useAuthStore()
 
 async function handleLogout(): Promise<void> {
   await logout()
-  await router.push({ name: RouteNameHomeEnum.HOME })
+  await index.push({ name: RouteNameHomeEnum.HOME })
 }
 </script>

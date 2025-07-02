@@ -1,5 +1,5 @@
 import { PaginationQueryParamsInterface, UsePaginationInterface } from '@/components/Pagination/pagination.interface'
-import router from '@/router/router'
+import index from '@/router'
 import { ref, Ref } from 'vue'
 import { RouteLocationNormalizedLoadedGeneric } from 'vue-router'
 
@@ -26,7 +26,7 @@ export const usePagination = (): UsePaginationInterface => {
   }
 
   const pushRouteWithNewPagination = async (page: number, perPage: number): Promise<void> => {
-    await router.push({
+    await index.push({
       query: { page: page, perPage: perPage },
     })
   }

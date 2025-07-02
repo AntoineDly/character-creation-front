@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { GameWithCategoriesAndPlayableItemsDtoInterface } from '@/pages/Game/game.interface'
-import { getGame } from '@/pages/Game/game.service'
+import { getGameWithCategoriesAndPlayableItems } from '@/pages/Game/game.service'
 import { RouteNameGameEnum } from '@/router/router.enum'
 import { onBeforeMount, ref, Ref } from 'vue'
 import { useRoute } from 'vue-router'
@@ -48,7 +48,7 @@ const game: Ref<GameWithCategoriesAndPlayableItemsDtoInterface> = ref({
 })
 
 onBeforeMount(async () => {
-  game.value = await getGame(gameId.value)
+  game.value = await getGameWithCategoriesAndPlayableItems(gameId.value)
   isLoaded.value = true
 })
 </script>

@@ -31,12 +31,12 @@ const routes = [
   ...componentFieldRoutes,
 ]
 
-const router = createRouter({
+const index = createRouter({
   history: createWebHistory(),
   routes,
 })
 
-router.beforeEach(async to => {
+index.beforeEach(async to => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     const authStore = useAuthStore()
     if (!authStore.isAuthenticated) {
@@ -45,4 +45,4 @@ router.beforeEach(async to => {
   }
 })
 
-export default router
+export default index

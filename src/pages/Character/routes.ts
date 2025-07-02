@@ -19,5 +19,8 @@ export const characterRoutes: RouteRecordRaw[] = [
     component: () => import('@/pages/Character/CreateCharacterPage.vue'),
     name: RouteNameCharacterEnum.CREATE_CHARACTER,
     meta: { requiresAuth: true },
+    props: route => ({
+      gameId: route.query.gameId,
+    }),
   },
 ]
