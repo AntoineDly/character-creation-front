@@ -2,6 +2,13 @@
   <h1>Créer un champ au composant</h1>
   <template v-if="isLoaded">
     <form @submit.prevent="handleSubmit">
+      <label for="components">Composant</label>
+      <select id="components" v-model="formData.parameterId">
+        <option disabled value="">Choisissez un paramètre</option>
+        <option v-for="parameter in parameters" :key="parameter.id" :value="parameter.id">
+          {{ parameter.name }}
+        </option>
+      </select>
       <label for="parameters">Paramètre</label>
       <select id="parameters" v-model="formData.parameterId">
         <option disabled value="">Choisissez un paramètre</option>
@@ -20,22 +27,29 @@
 </template>
 <script setup lang="ts">
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
-import { CreateComponentFieldFormInterface } from '@/pages/Component/ComponentField/componentField.interface'
-import { createComponentField } from '@/pages/Component/ComponentField/componentField.service'
+import { CreateComponentFieldFormInterface } from '@/pages/ComponentField/componentField.interface'
+import { createComponentField } from '@/pages/ComponentField/componentField.service'
 import { ParameterDtoInterface } from '@/pages/Parameter/parameter.interface'
 import { getParameters } from '@/pages/Parameter/parameter.service'
 import { RouteNameComponentEnum } from '@/router/router.enum'
 import { onBeforeMount, ref, Ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
-const route = useRoute()
 const router = useRouter()
 
-const componentId: Ref<string> = ref(route.params.componentId as string)
+interface Props {
+  componentId?: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  componentId: '',
+})
+
 const parameters: Ref<ParameterDtoInterface[]> = ref([])
+
 const formData: Ref<CreateComponentFieldFormInterface> = ref({
-  componentId: componentId.value,
+  componentId: props.componentId,
   parameterId: '',
   value: '',
 })

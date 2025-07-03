@@ -1,11 +1,19 @@
 <template>
   <RouterLink
     :to="{
-      name: RouteNameGameEnum.ASSOCIATE_CATEGORY,
-      params: { gameId: game.id },
+      name: RouteNameCategoryGameEnum.CREATE_CATEGORY_GAME,
+      query: { gameId: game.id },
     }"
   >
     Associer une catégorie
+  </RouterLink>
+  <RouterLink
+    :to="{
+      name: RouteNameCharacterEnum.CREATE_CHARACTER,
+      query: { gameId: game.id },
+    }"
+  >
+    Créer un personnage
   </RouterLink>
   <h1>Jeu</h1>
   <template v-if="isLoaded">
@@ -32,7 +40,7 @@
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { GameWithCategoriesAndPlayableItemsDtoInterface } from '@/pages/Game/game.interface'
 import { getGameWithCategoriesAndPlayableItems } from '@/pages/Game/game.service'
-import { RouteNameGameEnum } from '@/router/router.enum'
+import { RouteNameCategoryGameEnum, RouteNameCharacterEnum } from '@/router/router.enum'
 import { onBeforeMount, ref, Ref } from 'vue'
 import { useRoute } from 'vue-router'
 

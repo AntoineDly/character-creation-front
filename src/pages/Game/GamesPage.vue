@@ -20,14 +20,6 @@
       >
         Voir le jeu
       </RouterLink>
-      <RouterLink
-        :to="{
-          name: RouteNameCharacterEnum.CREATE_CHARACTER,
-          query: { gameId: game.id },
-        }"
-      >
-        Créer un personnage
-      </RouterLink>
     </div>
   </template>
   <template v-else>
@@ -41,7 +33,7 @@ import PaginationComponent from '@/components/Pagination/PaginationComponent.vue
 import { usePagination } from '@/components/Pagination/UsePagination'
 import { GamesDtoInterface } from '@/pages/Game/game.interface'
 import { getGames } from '@/pages/Game/game.service'
-import { RouteNameCharacterEnum, RouteNameGameEnum } from '@/router/router.enum'
+import { RouteNameGameEnum } from '@/router/router.enum'
 import { defaultCollectionValues } from '@/utils'
 import { ref, Ref, watch } from 'vue'
 import { useRoute } from 'vue-router'

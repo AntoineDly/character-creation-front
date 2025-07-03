@@ -24,7 +24,6 @@ export enum RouteNameCharacterEnum {
 export enum RouteNameGameEnum {
   GAMES = 'Games',
   GAME = 'Game',
-  ASSOCIATE_CATEGORY = 'AssociateCategory',
   CREATE_GAME = 'CreateGame',
 }
 
@@ -60,4 +59,8 @@ export enum RouteNameParameterEnum {
 
 export enum RouteNameComponentFieldEnum {
   CREATE_COMPONENT_FIELD = 'CreateComponentField',
+}
+
+export enum RouteNameCategoryGameEnum {
+  CREATE_CATEGORY_GAME = 'CreateCategoryGame',
 }

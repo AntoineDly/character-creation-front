@@ -1,9 +1,10 @@
 import { useAuthStore } from '@/pages/Auth/authStore'
 import { loginRoutes } from '@/pages/Auth/routes'
 import { categoryRoutes } from '@/pages/Category/routes'
+import { categoryGameRoutes } from '@/pages/CategoryGame/routes'
 import { characterRoutes } from '@/pages/Character/routes'
-import { componentFieldRoutes } from '@/pages/Component/ComponentField/routes'
 import { componentRoutes } from '@/pages/Component/routes'
+import { componentFieldRoutes } from '@/pages/ComponentField/routes'
 import { dashboardRoutes } from '@/pages/Dashboard/routes'
 import { gameRoutes } from '@/pages/Game/routes'
 import { homeRoutes } from '@/pages/Home/routes'
@@ -29,6 +30,7 @@ const routes = [
   ...linkedItemRoutes,
   ...parameterRoutes,
   ...componentFieldRoutes,
+  ...categoryGameRoutes,
 ]
 
 const index = createRouter({

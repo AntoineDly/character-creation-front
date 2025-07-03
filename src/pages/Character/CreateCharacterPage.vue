@@ -3,7 +3,7 @@
   <template v-if="isLoaded">
     <form @submit.prevent="handleSubmit">
       <label for="game">Jeu</label>
-      <select id="game" v-model="formData.gameId" :disabled="!isGameSelectionDisplayed">
+      <select id="game" v-model="formData.gameId" :disabled="isGameSelectionDisabled">
         <option disabled value="">Choisissez un jeu</option>
         <option v-for="game in games" :key="game.id" :value="game.id">
           {{ game.name }}
@@ -27,7 +27,7 @@ import { onBeforeMount, ref, Ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
-const isGameSelectionDisplayed: Ref<boolean> = ref(true)
+const isGameSelectionDisabled: Ref<boolean> = ref(false)
 const router = useRouter()
 
 const props = defineProps({
@@ -44,7 +44,7 @@ const formData: Ref<CreateCharacterFormInterface> = ref({
 
 onBeforeMount(async () => {
   if (props.gameId !== '') {
-    isGameSelectionDisplayed.value = false
+    isGameSelectionDisabled.value = true
     games.value[0] = await getGame(props.gameId)
   } else {
     games.value = await getAllGames()

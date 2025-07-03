@@ -15,12 +15,6 @@ export const gameRoutes: RouteRecordRaw[] = [
     meta: { requiresAuth: true },
   },
   {
-    path: '/games/:gameId/associate_category',
-    component: () => import('@/pages/Game/AssociateCategoryPage.vue'),
-    name: RouteNameGameEnum.ASSOCIATE_CATEGORY,
-    meta: { requiresAuth: true },
-  },
-  {
     path: '/games/create',
     component: () => import('@/pages/Game/CreateGamePage.vue'),
     name: RouteNameGameEnum.CREATE_GAME,
