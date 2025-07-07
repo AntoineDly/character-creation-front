@@ -26,10 +26,11 @@
 <script setup lang="ts">
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
 import { CategoryDtoInterface } from '@/pages/Category/category.interface'
-import { getAllCategories, getCategory } from '@/pages/Category/category.service'
+import { getAllCategories, getAllCategoriesWithRequestedGame, getCategory } from '@/pages/Category/category.service'
 import { CreateCategoryGameFormInterface } from '@/pages/CategoryGame/categoryGame.interface'
+import { createCategoryGame } from '@/pages/CategoryGame/categoryGame.service'
 import { GameDtoInterface } from '@/pages/Game/game.interface'
-import { associateCategory, getAllGames, getGame } from '@/pages/Game/game.service'
+import { getAllGames, getAllGamesWithoutRequestedCategory, getGame } from '@/pages/Game/game.service'
 import { RouteNameGameEnum } from '@/router/router.enum'
 import { onBeforeMount, ref, Ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -57,25 +58,47 @@ const formData: Ref<CreateCategoryGameFormInterface> = ref({
   categoryId: props.categoryId,
 })
 
-onBeforeMount(async () => {
+const getGames = async () => {
   if (props.gameId !== '') {
     isGameSelectionDisabled.value = true
     games.value[0] = await getGame(props.gameId)
-  } else {
-    games.value = await getAllGames()
+    return
   }
+
+  if (props.categoryId !== '') {
+    games.value = await getAllGamesWithoutRequestedCategory({ categoryId: props.categoryId })
+    return
+  }
+
+  games.value = await getAllGames()
+  return
+}
+
+const getCategories = async () => {
   if (props.categoryId !== '') {
     isCategorySelectionDisabled.value = true
     categories.value[0] = await getCategory(props.categoryId)
-  } else {
-    categories.value = await getAllCategories()
+    return
   }
+
+  if (props.gameId !== '') {
+    games.value = await getAllCategoriesWithRequestedGame({ gameId: props.gameId })
+    return
+  }
+
+  categories.value = await getAllCategories()
+  return
+}
+
+onBeforeMount(async () => {
+  await getGames()
+  await getCategories()
   isLoaded.value = true
 })
 
 async function handleSubmit(): Promise<void> {
   isLoaded.value = false
-  await associateCategory(formData.value)
+  await createCategoryGame(formData.value)
   await router.push({
     name: RouteNameGameEnum.GAME,
     params: { gameId: formData.value.gameId },

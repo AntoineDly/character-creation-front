@@ -5,6 +5,7 @@ import {
   CategoryDtoInterface,
   CreateCategoryFormInterface,
 } from '@/pages/Category/category.interface'
+import { GameIdQueryParamsInterface } from '@/pages/Game/game.interface'
 
 async function getCategories(pagination: PaginationQueryParamsInterface): Promise<CategoriesDtoInterface> {
   const response = await authenticatedAxiosInstance.get('/categories', { params: pagination })
@@ -25,4 +26,9 @@ async function getAllCategories(): Promise<CategoryDtoInterface[]> {
   return response.data.data
 }
 
-export { createCategory, getAllCategories, getCategories, getCategory }
+async function getAllCategoriesWithRequestedGame(data: GameIdQueryParamsInterface): Promise<CategoryDtoInterface[]> {
+  const response = await authenticatedAxiosInstance.get('/categories_all_without_requested_game-', { params: data })
+  return response.data.data
+}
+
+export { createCategory, getAllCategories, getAllCategoriesWithRequestedGame, getCategories, getCategory }

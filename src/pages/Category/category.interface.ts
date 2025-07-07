@@ -6,6 +6,10 @@ export interface CategoryDtoInterface {
   name: string
 }
 
+export interface CategoryIdQueryParamsInterface {
+  categoryId: string
+}
+
 export interface CategoriesDtoInterface {
   dtos: CategoryDtoInterface[]
   paginationDto: PaginationDtoInterface

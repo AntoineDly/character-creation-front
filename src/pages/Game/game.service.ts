@@ -1,7 +1,7 @@
 import { PaginationQueryParamsInterface } from '@/components/Pagination/pagination.interface'
 import { authenticatedAxiosInstance } from '@/config/axios'
+import { CategoryIdQueryParamsInterface } from '@/pages/Category/category.interface'
 import {
-  AssociateCategoryFormInterface,
   CreateGameFormInterface,
   GameDtoInterface,
   GamesDtoInterface,
@@ -18,6 +18,11 @@ async function getAllGames(): Promise<GameDtoInterface[]> {
   return response.data.data
 }
 
+async function getAllGamesWithoutRequestedCategory(data: CategoryIdQueryParamsInterface): Promise<GameDtoInterface[]> {
+  const response = await authenticatedAxiosInstance.get('/games_all', { params: data })
+  return response.data.data
+}
+
 async function getGame(gameId: string): Promise<GameDtoInterface> {
   const response = await authenticatedAxiosInstance.get('/games/' + gameId)
   return response.data.data
@@ -30,12 +35,15 @@ async function getGameWithCategoriesAndPlayableItems(
   return response.data.data
 }
 
-async function associateCategory(data: AssociateCategoryFormInterface): Promise<void> {
-  await authenticatedAxiosInstance.post('categories/associate_game', data)
-}
-
 async function createGame(data: CreateGameFormInterface): Promise<void> {
   await authenticatedAxiosInstance.post('/games', data)
 }
 
-export { associateCategory, createGame, getAllGames, getGame, getGames, getGameWithCategoriesAndPlayableItems }
+export {
+  createGame,
+  getAllGames,
+  getAllGamesWithoutRequestedCategory,
+  getGame,
+  getGames,
+  getGameWithCategoriesAndPlayableItems,
+}

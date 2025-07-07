@@ -7,6 +7,10 @@ export interface GameDtoInterface {
   name: string
 }
 
+export interface GameIdQueryParamsInterface {
+  gameId: string
+}
+
 export interface GamesDtoInterface {
   dtos: GameDtoInterface[]
   paginationDto: PaginationDtoInterface
