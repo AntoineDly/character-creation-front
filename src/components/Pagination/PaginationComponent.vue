@@ -2,17 +2,37 @@
   <div class="pagination">
     <div>
       Pages :
-      <PaginationButton :per-page="props.perPage" :page="props.firstPage" />
-      <PaginationButton :per-page="props.perPage" :page="props.previousPage" />
-      <PaginationButton :per-page="props.perPage" :page="props.currentPage" />
-      <PaginationButton :per-page="props.perPage" :page="props.nextPage" />
-      <PaginationButton :per-page="props.perPage" :page="props.lastPage" />
+      <PaginationButton
+        v-if="pagination.firstPage !== null"
+        v-model:current-page="pagination.currentPage"
+        :per-page="pagination.perPage"
+        :page="pagination.firstPage"
+      />
+      <PaginationButton
+        v-if="pagination.previousPage !== null"
+        v-model:current-page="pagination.currentPage"
+        :per-page="pagination.perPage"
+        :page="pagination.previousPage"
+      />
+      {{ pagination.currentPage }}
+      <PaginationButton
+        v-if="pagination.nextPage !== null"
+        v-model:current-page="pagination.currentPage"
+        :per-page="pagination.perPage"
+        :page="pagination.nextPage"
+      />
+      <PaginationButton
+        v-if="pagination.lastPage !== null"
+        v-model:current-page="pagination.currentPage"
+        :per-page="pagination.perPage"
+        :page="pagination.lastPage"
+      />
     </div>
     <div>
-      <div>Total : {{ props.total }}</div>
+      <div>Total : {{ pagination.total }}</div>
       <form @submit.prevent="handleSubmit">
         <label for="perPage">Nombre d'éléments par page</label>
-        <select id="parameters" v-model="formData.perPage">
+        <select id="parameters" v-model="perPage">
           <option v-for="perPageOption in perPageOptions" :key="perPageOption" :value="perPageOption">
             {{ perPageOption }}
           </option>
@@ -23,26 +43,18 @@
   </div>
 </template>
 <script setup lang="ts">
-import {
-  PaginationDtoInterface,
-  PaginationPerPageFormDataInterface,
-  UsePaginationInterface,
-} from '@/components/Pagination/pagination.interface'
+import { PaginationDtoInterface } from '@/components/Pagination/pagination.interface'
 import PaginationButton from '@/components/Pagination/PaginationButton.vue'
-import { usePagination } from '@/components/Pagination/UsePagination'
 import { ref, Ref } from 'vue'
 
-const props = defineProps<PaginationDtoInterface>()
-const pagination: UsePaginationInterface = usePagination()
-
-const formData: Ref<PaginationPerPageFormDataInterface> = ref({
-  perPage: props.perPage,
-})
+const pagination = defineModel<PaginationDtoInterface>('pagination', { required: true })
 
 const perPageOptions: Ref<number[]> = ref([5, 15, 25, 50, 100])
 
-async function handleSubmit(): Promise<void> {
-  await pagination.pushRouteWithNewPagination(props.currentPage, formData.value.perPage)
+const perPage = ref(pagination.value.perPage)
+
+const handleSubmit = () => {
+  pagination.value.perPage = perPage.value
 }
 </script>
 

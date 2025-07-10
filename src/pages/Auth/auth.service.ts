@@ -2,19 +2,19 @@ import { authenticatedAxiosInstance, unauthenticatedAxiosInstance } from '@/conf
 import { LoginFormInterface, RegisterFormInterface } from '@/pages/Auth/auth.interface'
 import { useAuthStore } from '@/pages/Auth/authStore'
 
+const authStore = useAuthStore()
+
 async function register(data: RegisterFormInterface) {
   await unauthenticatedAxiosInstance.post('/register', data)
 }
 
 async function login(data: LoginFormInterface) {
-  const authStore = useAuthStore()
   const response = await unauthenticatedAxiosInstance.post('/login', data)
   const token = response.data.data.token
   authStore.setToken(token)
 }
 
 async function logout() {
-  const authStore = useAuthStore()
   await authenticatedAxiosInstance.post('/logout')
   authStore.clearToken()
 }

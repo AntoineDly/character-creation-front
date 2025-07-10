@@ -1,20 +1,19 @@
 <template>
-  <h1>Créer un personnage</h1>
-  <template v-if="isLoaded">
-    <form @submit.prevent="handleSubmit">
-      <label for="game">Jeu</label>
-      <select id="game" v-model="formData.gameId" :disabled="isGameSelectionDisabled">
-        <option disabled value="">Choisissez un jeu</option>
-        <option v-for="game in games" :key="game.id" :value="game.id">
-          {{ game.name }}
-        </option>
-      </select>
-      <input type="submit" value="Créer un personnage" />
-    </form>
-  </template>
-  <template v-else>
-    <LoadingComponent />
-  </template>
+  <div>
+    <h1>Créer un personnage</h1>
+    <LoadingComponent v-model="isLoaded">
+      <form @submit.prevent="handleSubmit">
+        <label for="game">Jeu</label>
+        <select id="game" v-model="formData.gameId" :disabled="isGameSelectionDisabled">
+          <option disabled value="">Choisissez un jeu</option>
+          <option v-for="game in games" :key="game.id" :value="game.id">
+            {{ game.name }}
+          </option>
+        </select>
+        <input type="submit" value="Créer un personnage" />
+      </form>
+    </LoadingComponent>
+  </div>
 </template>
 <script setup lang="ts">
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
@@ -28,7 +27,7 @@ import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
 const isGameSelectionDisabled: Ref<boolean> = ref(false)
-const router = useRouter()
+const { push } = useRouter()
 
 const props = defineProps({
   gameId: {
@@ -55,6 +54,6 @@ onBeforeMount(async () => {
 async function handleSubmit(): Promise<void> {
   isLoaded.value = false
   await createCharacter(formData.value)
-  await router.push({ name: RouteNameCharacterEnum.CHARACTERS })
+  await push({ name: RouteNameCharacterEnum.CHARACTERS })
 }
 </script>

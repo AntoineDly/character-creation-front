@@ -1,27 +1,26 @@
 <template>
-  <h1>Créer un objet jouable</h1>
-  <template v-if="isLoaded">
-    <form @submit.prevent="handleSubmit">
-      <label for="item">Objet</label>
-      <select id="item" v-model="formData.itemId">
-        <option disabled value="">Choisissez un objet</option>
-        <option v-for="item in items" :key="item.id" :value="item.id">
-          {{ item.id }}
-        </option>
-      </select>
-      <label for="game">Jeu</label>
-      <select id="game" v-model="formData.gameId">
-        <option disabled value="">Choisissez un jeu</option>
-        <option v-for="game in games" :key="game.id" :value="game.id">
-          {{ game.name }}
-        </option>
-      </select>
-      <input type="submit" value="Créer un objet jouable" />
-    </form>
-  </template>
-  <template v-else>
-    <LoadingComponent />
-  </template>
+  <div>
+    <h1>Créer un objet jouable</h1>
+    <LoadingComponent v-model="isLoaded">
+      <form @submit.prevent="handleSubmit">
+        <label for="item">Objet</label>
+        <select id="item" v-model="formData.itemId">
+          <option disabled value="">Choisissez un objet</option>
+          <option v-for="item in items" :key="item.id" :value="item.id">
+            {{ item.id }}
+          </option>
+        </select>
+        <label for="game">Jeu</label>
+        <select id="game" v-model="formData.gameId">
+          <option disabled value="">Choisissez un jeu</option>
+          <option v-for="game in games" :key="game.id" :value="game.id">
+            {{ game.name }}
+          </option>
+        </select>
+        <input type="submit" value="Créer un objet jouable" />
+      </form>
+    </LoadingComponent>
+  </div>
 </template>
 <script setup lang="ts">
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
@@ -36,7 +35,7 @@ import { onBeforeMount, ref, Ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
-const router = useRouter()
+const { push } = useRouter()
 
 const items: Ref<ItemDtoInterface[]> = ref([])
 const games: Ref<GameDtoInterface[]> = ref([])
@@ -56,6 +55,6 @@ onBeforeMount(async () => {
 async function handleSubmit(): Promise<void> {
   isLoaded.value = false
   await createPlayableItem(formData.value)
-  await router.push({ name: RouteNamePlayableItemEnum.PLAYABLE_ITEMS })
+  await push({ name: RouteNamePlayableItemEnum.PLAYABLE_ITEMS })
 }
 </script>

@@ -1,27 +1,26 @@
 <template>
-  <h1>Créer un objet</h1>
-  <template v-if="isLoaded">
-    <form @submit.prevent="handleSubmit">
-      <label for="component">Composant</label>
-      <select id="component" v-model="formData.componentId">
-        <option disabled value="">Choisissez un composant</option>
-        <option v-for="component in components" :key="component.id" :value="component.id">
-          {{ component.id }}
-        </option>
-      </select>
-      <label for="category">Catégorie</label>
-      <select id="category" v-model="formData.categoryId">
-        <option disabled value="">Choisissez une catégorie</option>
-        <option v-for="category in categories" :key="category.id" :value="category.id">
-          {{ category.name }}
-        </option>
-      </select>
-      <input type="submit" value="Créer un objet" />
-    </form>
-  </template>
-  <template v-else>
-    <LoadingComponent />
-  </template>
+  <div>
+    <h1>Créer un objet</h1>
+    <LoadingComponent v-model="isLoaded">
+      <form @submit.prevent="handleSubmit">
+        <label for="component">Composant</label>
+        <select id="component" v-model="formData.componentId">
+          <option disabled value="">Choisissez un composant</option>
+          <option v-for="component in components" :key="component.id" :value="component.id">
+            {{ component.id }}
+          </option>
+        </select>
+        <label for="category">Catégorie</label>
+        <select id="category" v-model="formData.categoryId">
+          <option disabled value="">Choisissez une catégorie</option>
+          <option v-for="category in categories" :key="category.id" :value="category.id">
+            {{ category.name }}
+          </option>
+        </select>
+        <input type="submit" value="Créer un objet" />
+      </form>
+    </LoadingComponent>
+  </div>
 </template>
 <script setup lang="ts">
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
@@ -36,7 +35,7 @@ import { onBeforeMount, ref, Ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
-const router = useRouter()
+const { push } = useRouter()
 
 const components: Ref<ComponentDtoInterface[]> = ref([])
 const categories: Ref<CategoryDtoInterface[]> = ref([])
@@ -56,6 +55,6 @@ onBeforeMount(async () => {
 async function handleSubmit(): Promise<void> {
   isLoaded.value = false
   await createItem(formData.value)
-  await router.push({ name: RouteNameItemEnum.ITEMS })
+  await push({ name: RouteNameItemEnum.ITEMS })
 }
 </script>

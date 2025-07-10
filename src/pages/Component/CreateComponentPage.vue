@@ -1,13 +1,12 @@
 <template>
-  <h1>Créer un composant</h1>
-  <template v-if="isLoaded">
-    <form @submit.prevent="handleSubmit">
-      <input type="submit" value="Créer un composant" />
-    </form>
-  </template>
-  <template v-else>
-    <LoadingComponent />
-  </template>
+  <div>
+    <h1>Créer un composant</h1>
+    <LoadingComponent v-model="isLoaded">
+      <form @submit.prevent="handleSubmit">
+        <input type="submit" value="Créer un composant" />
+      </form>
+    </LoadingComponent>
+  </div>
 </template>
 <script setup lang="ts">
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
@@ -17,11 +16,11 @@ import { ref, Ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(true)
-const router = useRouter()
+const { push } = useRouter()
 
 async function handleSubmit(): Promise<void> {
   isLoaded.value = false
   await createComponent()
-  await router.push({ name: RouteNameComponentEnum.COMPONENTS })
+  await push({ name: RouteNameComponentEnum.COMPONENTS })
 }
 </script>

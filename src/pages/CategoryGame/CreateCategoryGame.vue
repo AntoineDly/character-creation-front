@@ -1,27 +1,26 @@
 <template>
-  <h1>Associer une catégorie</h1>
-  <template v-if="isLoaded">
-    <form @submit.prevent="handleSubmit">
-      <label for="game">Jeu</label>
-      <select id="game" v-model="formData.gameId" :disabled="isGameSelectionDisabled">
-        <option disabled value="">Choisissez un jeu</option>
-        <option v-for="game in games" :key="game.id" :value="game.id">
-          {{ game.name }}
-        </option>
-      </select>
-      <label for="categories">Catégorie</label>
-      <select id="categories" v-model="formData.categoryId" :disabled="isCategorySelectionDisabled">
-        <option disabled value="">Choisissez une catégorie</option>
-        <option v-for="category in categories" :key="category.id" :value="category.id">
-          {{ category.name }}
-        </option>
-      </select>
-      <input type="submit" value="Associer une catégorie" />
-    </form>
-  </template>
-  <template v-else>
-    <LoadingComponent />
-  </template>
+  <div>
+    <h1>Associer une catégorie</h1>
+    <LoadingComponent v-model="isLoaded">
+      <form @submit.prevent="handleSubmit">
+        <label for="game">Jeu</label>
+        <select id="game" v-model="formData.gameId" :disabled="isGameSelectionDisabled">
+          <option disabled value="">Choisissez un jeu</option>
+          <option v-for="game in games" :key="game.id" :value="game.id">
+            {{ game.name }}
+          </option>
+        </select>
+        <label for="categories">Catégorie</label>
+        <select id="categories" v-model="formData.categoryId" :disabled="isCategorySelectionDisabled">
+          <option disabled value="">Choisissez une catégorie</option>
+          <option v-for="category in categories" :key="category.id" :value="category.id">
+            {{ category.name }}
+          </option>
+        </select>
+        <input type="submit" value="Créer une association entre un jeu et une catégorie" />
+      </form>
+    </LoadingComponent>
+  </div>
 </template>
 <script setup lang="ts">
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'
@@ -31,12 +30,12 @@ import { CreateCategoryGameFormInterface } from '@/pages/CategoryGame/categoryGa
 import { createCategoryGame } from '@/pages/CategoryGame/categoryGame.service'
 import { GameDtoInterface } from '@/pages/Game/game.interface'
 import { getAllGames, getAllGamesWithoutRequestedCategory, getGame } from '@/pages/Game/game.service'
-import { RouteNameGameEnum } from '@/router/router.enum'
+import { RouteNameHomeEnum } from '@/router/router.enum'
 import { onBeforeMount, ref, Ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(false)
-const router = useRouter()
+const { push } = useRouter()
 
 const isGameSelectionDisabled: Ref<boolean> = ref(false)
 const isCategorySelectionDisabled: Ref<boolean> = ref(false)
@@ -99,9 +98,6 @@ onBeforeMount(async () => {
 async function handleSubmit(): Promise<void> {
   isLoaded.value = false
   await createCategoryGame(formData.value)
-  await router.push({
-    name: RouteNameGameEnum.GAME,
-    params: { gameId: formData.value.gameId },
-  })
+  await push({ name: RouteNameHomeEnum.HOME })
 }
 </script>

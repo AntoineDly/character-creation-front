@@ -1,3 +1,5 @@
 <template>
-  <h1>Page principal quand connecté</h1>
+  <div>
+    <h1>age principal quand connecté</h1>
+  </div>
 </template>

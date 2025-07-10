@@ -1,7 +1,7 @@
 import { useAuthStore } from '@/pages/Auth/authStore'
-import router from '@/router'
 import { RouteNameHomeEnum } from '@/router/router.enum'
 import axios, { InternalAxiosRequestConfig } from 'axios'
+import { storeToRefs } from 'pinia'
 
 const baseAxiosInstanceConfig = {
   baseURL: 'http://127.0.0.1:8000/api',
@@ -14,9 +14,11 @@ const authenticatedAxiosInstance = axios.create(baseAxiosInstanceConfig)
 
 const unauthenticatedAxiosInstance = axios.create(baseAxiosInstanceConfig)
 
+const authStore = useAuthStore()
+const { isAuthenticated } = storeToRefs(authStore)
+
 const setAuthorizationHeader = (config: InternalAxiosRequestConfig) => {
-  const authStore = useAuthStore()
-  if (!authStore.isAuthenticated) {
+  if (!isAuthenticated) {
     return Promise.reject(new Error('Unauthenticated'))
   }
   config.headers['Authorization'] = `Bearer ${authStore.token}`
@@ -40,7 +42,7 @@ authenticatedAxiosInstance.interceptors.response.use(
     if (status === 401) {
       const authStore = useAuthStore()
       authStore.clearToken()
-      router.push({ name: RouteNameHomeEnum.HOME })
+      push({ name: RouteNameHomeEnum.HOME })
     }
 
     return Promise.reject(error)

@@ -1,5 +1,3 @@
-import { RouteLocationNormalizedLoadedGeneric } from 'vue-router'
-
 export interface PaginationDtoInterface {
   currentPage: number
   perPage: number
@@ -16,17 +14,9 @@ export interface PaginationQueryParamsInterface {
 }
 
 export interface PaginationButtonInterface {
-  perPage: number
-  page: number | null
+  page: number
 }
 
 export interface UsePaginationInterface {
-  getQueryParams: () => PaginationQueryParamsInterface
-  getQueryParamsFromRoute: (route: RouteLocationNormalizedLoadedGeneric) => PaginationQueryParamsInterface
-  setPageAndPerPageInput: (route: RouteLocationNormalizedLoadedGeneric) => void
-  pushRouteWithNewPagination: (page: number, perPage: number) => Promise<void>
-}
-
-export interface PaginationPerPageFormDataInterface {
-  perPage: number
+  getQueryParamsFromPaginationDto: (paginationDto: PaginationDtoInterface) => PaginationQueryParamsInterface
 }

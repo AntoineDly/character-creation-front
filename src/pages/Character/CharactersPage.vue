@@ -1,24 +1,23 @@
 <template>
-  <RouterLink :to="{ name: RouteNameCharacterEnum.CREATE_CHARACTER }"> Créer un personnage </RouterLink>
-  <h1>Liste des personnages</h1>
-  <template v-if="isLoaded">
-    <div v-for="character in characters" :key="character.id">
-      {{ character.id }}
-      {{ character.gameDto.id }}
-      {{ character.gameDto.name }}
-      <RouterLink
-        :to="{
-          name: RouteNameCharacterEnum.CHARACTER,
-          params: { characterId: character.id },
-        }"
-      >
-        Voir le personnage
-      </RouterLink>
-    </div>
-  </template>
-  <template v-else>
-    <LoadingComponent />
-  </template>
+  <div>
+    <RouterLink :to="{ name: RouteNameCharacterEnum.CREATE_CHARACTER }"> Créer un personnage </RouterLink>
+    <h1>Liste des personnages</h1>
+    <LoadingComponent v-model="isLoaded">
+      <div v-for="character in characters" :key="character.id">
+        {{ character.id }}
+        {{ character.gameDto.id }}
+        {{ character.gameDto.name }}
+        <RouterLink
+          :to="{
+            name: RouteNameCharacterEnum.CHARACTER,
+            params: { characterId: character.id },
+          }"
+        >
+          Voir le personnage
+        </RouterLink>
+      </div>
+    </LoadingComponent>
+  </div>
 </template>
 <script setup lang="ts">
 import LoadingComponent from '@/components/Loading/LoadingComponent.vue'

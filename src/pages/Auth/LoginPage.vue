@@ -1,17 +1,16 @@
 <template>
-  <h1>Se connecter</h1>
-  <template v-if="isLoaded">
-    <form @submit.prevent="handleSubmit">
-      <label for="email">Adresse mail</label>
-      <input id="email" v-model="formData.email" type="email" placeholder="Adresse mail" />
-      <label for="password">Mot de passe</label>
-      <input id="password" v-model="formData.password" type="password" placeholder="Mot de passe" />
-      <input type="submit" value="Se connecter" />
-    </form>
-  </template>
-  <template v-else>
-    <LoadingComponent />
-  </template>
+  <div>
+    <h1>Se connecter</h1>
+    <LoadingComponent v-model="isLoaded">
+      <form @submit.prevent="handleSubmit">
+        <label for="email">Adresse mail</label>
+        <input id="email" v-model="formData.email" type="email" placeholder="Adresse mail" />
+        <label for="password">Mot de passe</label>
+        <input id="password" v-model="formData.password" type="password" placeholder="Mot de passe" />
+        <input type="submit" value="Se connecter" />
+      </form>
+    </LoadingComponent>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -23,7 +22,7 @@ import { Ref, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const isLoaded: Ref<boolean> = ref(true)
-const router = useRouter()
+const { push } = useRouter()
 
 const formData: Ref<LoginFormInterface> = ref({
   email: '',
@@ -33,6 +32,6 @@ const formData: Ref<LoginFormInterface> = ref({
 async function handleSubmit(): Promise<void> {
   isLoaded.value = false
   await login(formData.value)
-  await router.push({ name: RouteNameHomeEnum.HOME })
+  await push({ name: RouteNameHomeEnum.HOME })
 }
 </script>
