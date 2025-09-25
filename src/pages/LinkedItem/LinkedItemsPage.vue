@@ -1,13 +1,13 @@
 <template>
   <div>
-    <RouterLink :to="{ name: RouteNameLinkedItemEnum.CREATE_LINKED_ITEM }"> Créer un objet lié </RouterLink>
+    <router-link :to="{ name: RouteNameLinkedItemEnum.CREATE_LINKED_ITEM }"> Créer un objet lié </router-link>
     <h1>Liste des objets liés</h1>
-    <LoadingComponent v-model="isLoaded">
-      <PaginationComponent v-model:pagination="linkedItems.paginationDto" />
+    <loading-component v-model="isLoaded">
+      <pagination-component v-model:pagination="linkedItems.paginationDto" />
       <div v-for="linkedItem in linkedItems.dtos" :key="linkedItem.id">
         {{ linkedItem.id }}
       </div>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">

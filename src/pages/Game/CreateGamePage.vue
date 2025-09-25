@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Créer un jeu</h1>
-    <LoadingComponent v-model="isLoaded">
+    <loading-component v-model="isLoaded">
       <form @submit.prevent="handleSubmit">
         <label for="name">Nom du jeu</label>
         <input id="name" v-model="formData.name" type="text" placeholder="Nom de jeu" />
@@ -9,7 +9,7 @@
         <input id="visibleForAll" v-model="formData.visibleForAll" type="checkbox" />
         <input type="submit" value="Créer un jeu" />
       </form>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">

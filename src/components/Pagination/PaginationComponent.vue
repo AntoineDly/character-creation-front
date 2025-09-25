@@ -2,26 +2,26 @@
   <div class="pagination">
     <div>
       Pages :
-      <PaginationButton
+      <pagination-button
         v-if="pagination.firstPage !== null"
         v-model:current-page="pagination.currentPage"
         :per-page="pagination.perPage"
         :page="pagination.firstPage"
       />
-      <PaginationButton
+      <pagination-button
         v-if="pagination.previousPage !== null"
         v-model:current-page="pagination.currentPage"
         :per-page="pagination.perPage"
         :page="pagination.previousPage"
       />
       {{ pagination.currentPage }}
-      <PaginationButton
+      <pagination-button
         v-if="pagination.nextPage !== null"
         v-model:current-page="pagination.currentPage"
         :per-page="pagination.perPage"
         :page="pagination.nextPage"
       />
-      <PaginationButton
+      <pagination-button
         v-if="pagination.lastPage !== null"
         v-model:current-page="pagination.currentPage"
         :per-page="pagination.perPage"

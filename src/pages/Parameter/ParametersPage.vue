@@ -1,13 +1,13 @@
 <template>
   <div>
-    <RouterLink :to="{ name: RouteNameParameterEnum.CREATE_PARAMETER }"> Créer un paramètre </RouterLink>
+    <router-link :to="{ name: RouteNameParameterEnum.CREATE_PARAMETER }"> Créer un paramètre </router-link>
     <h1>Liste des paramètres</h1>
-    <LoadingComponent v-model="isLoaded">
-      <PaginationComponent v-model:pagination="parameters.paginationDto" />
+    <loading-component v-model="isLoaded">
+      <pagination-component v-model:pagination="parameters.paginationDto" />
       <div v-for="parameter in parameters.dtos" :key="parameter.id">
         {{ parameter.id }} | {{ parameter.name }} | {{ parameter.type }}
       </div>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">

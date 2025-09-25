@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Se connecter</h1>
-    <LoadingComponent v-model="isLoaded">
+    <loading-component v-model="isLoaded">
       <form @submit.prevent="handleSubmit">
         <label for="email">Adresse mail</label>
         <input id="email" v-model="formData.email" type="email" placeholder="Adresse mail" />
@@ -16,7 +16,7 @@
         />
         <input type="submit" value="Se connecter" />
       </form>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 

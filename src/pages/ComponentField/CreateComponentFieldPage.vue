@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Créer un champ au composant</h1>
-    <LoadingComponent v-model="isLoaded">
+    <loading-component v-model="isLoaded">
       <form @submit.prevent="handleSubmit">
         <label for="components">Composant</label>
         <select id="components" v-model="formData.parameterId">
@@ -21,7 +21,7 @@
         <input id="value" v-model="formData.value" type="text" placeholder="Valeur du champ" />
         <input type="submit" value="Créer un champ au composant" />
       </form>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">

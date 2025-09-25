@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Associer une catégorie</h1>
-    <LoadingComponent v-model="isLoaded">
+    <loading-component v-model="isLoaded">
       <form @submit.prevent="handleSubmit">
         <label for="game">Jeu</label>
         <select id="game" v-model="formData.gameId" :disabled="isGameSelectionDisabled">
@@ -19,7 +19,7 @@
         </select>
         <input type="submit" value="Créer une association entre un jeu et une catégorie" />
       </form>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">

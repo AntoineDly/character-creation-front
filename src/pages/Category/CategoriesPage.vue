@@ -1,22 +1,22 @@
 <template>
   <div>
-    <RouterLink :to="{ name: RouteNameCategoryEnum.CREATE_CATEGORY }"> Créer une nouvelle catégorie </RouterLink>
+    <router-link :to="{ name: RouteNameCategoryEnum.CREATE_CATEGORY }"> Créer une nouvelle catégorie </router-link>
     <h1>Liste des catégories</h1>
-    <LoadingComponent v-model="isLoaded">
-      <PaginationComponent v-model:pagination="categories.paginationDto" />
+    <loading-component v-model="isLoaded">
+      <pagination-component v-model:pagination="categories.paginationDto" />
       <div v-for="category in categories.dtos" :key="category.id">
         {{ category.id }}
         {{ category.name }}
-        <RouterLink
+        <router-link
           :to="{
             name: RouteNameCategoryGameEnum.CREATE_CATEGORY_GAME,
             query: { categoryId: category.id },
           }"
         >
           Associer un jeu
-        </RouterLink>
+        </router-link>
       </div>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">

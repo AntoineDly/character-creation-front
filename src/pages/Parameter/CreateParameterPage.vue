@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Créer un paramètre</h1>
-    <LoadingComponent v-model="isLoaded">
+    <loading-component v-model="isLoaded">
       <label for="name">Nom du paramètre</label>
       <input id="name" v-model="formData.name" type="text" placeholder="Nom de paramètre" />
       <label for="type">Type</label>
@@ -14,7 +14,7 @@
       <form @submit.prevent="handleSubmit">
         <input type="submit" value="Créer un paramètre" />
       </form>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">

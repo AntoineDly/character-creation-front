@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Personnage</h1>
-    <LoadingComponent v-model="isLoaded">
+    <loading-component v-model="isLoaded">
       <p>Jeu : {{ character.gameDto.name }}</p>
       <p>Catégories</p>
       <ul>
@@ -20,7 +20,7 @@
           </ul>
         </li>
       </ul>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">

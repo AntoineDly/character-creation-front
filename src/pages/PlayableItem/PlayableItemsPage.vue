@@ -1,13 +1,13 @@
 <template>
   <div>
-    <RouterLink :to="{ name: RouteNamePlayableItemEnum.CREATE_PLAYABLE_ITEM }"> Créer un objet jouable </RouterLink>
+    <router-link :to="{ name: RouteNamePlayableItemEnum.CREATE_PLAYABLE_ITEM }"> Créer un objet jouable </router-link>
     <h1>Liste des objets jouables</h1>
-    <LoadingComponent v-model="isLoaded">
-      <PaginationComponent v-model:pagination="playableItems.paginationDto" />
+    <loading-component v-model="isLoaded">
+      <pagination-component v-model:pagination="playableItems.paginationDto" />
       <div v-for="playableItem in playableItems.dtos" :key="playableItem.id">
         {{ playableItem.id }}
       </div>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">

@@ -1,6 +1,6 @@
 import { defineConfig } from 'eslint/config'
 import eslint from '@eslint/js'
-import eslintPluginVue from 'eslint-plugin-vue'
+import vue from 'eslint-plugin-vue'
 import globals from 'globals'
 import typescriptEslint from 'typescript-eslint'
 import eslintConfigPrettier from 'eslint-config-prettier/flat'
@@ -13,10 +13,14 @@ const prettierIgnorePath = fileURLToPath(new URL(".prettierignore", import.meta.
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default defineConfig([
     {
+        plugins: {
+            vue,
+        },
         extends: [
             eslint.configs.recommended,
             ...typescriptEslint.configs.recommended,
-            ...eslintPluginVue.configs['flat/recommended'],
+            ...vue.configs['flat/recommended'],
+            ...vue.configs['flat/essential'],
         ],
         files: ['**/*.{mjs,cjs,js,vue,ts}'],
         ignores: ['**/*.config.js', 'node_modules', 'dist'],
@@ -29,6 +33,12 @@ export default defineConfig([
             },
             ecmaVersion: 'latest',
             sourceType: 'module',
+        },
+        rules: {
+            'vue/component-name-in-template-casing': ['error', 'kebab-case', {
+                "registeredComponentsOnly": false,
+                "ignores": []
+            }],
         },
     },
     eslintConfigPrettier,

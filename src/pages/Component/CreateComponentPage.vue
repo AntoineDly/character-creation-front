@@ -1,11 +1,11 @@
 <template>
   <div>
     <h1>Créer un composant</h1>
-    <LoadingComponent v-model="isLoaded">
+    <loading-component v-model="isLoaded">
       <form @submit.prevent="handleSubmit">
         <input type="submit" value="Créer un composant" />
       </form>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">

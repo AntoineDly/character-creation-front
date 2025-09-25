@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Créer un personnage</h1>
-    <LoadingComponent v-model="isLoaded">
+    <loading-component v-model="isLoaded">
       <form @submit.prevent="handleSubmit">
         <label for="game">Jeu</label>
         <select id="game" v-model="formData.gameId" :disabled="isGameSelectionDisabled">
@@ -12,7 +12,7 @@
         </select>
         <input type="submit" value="Créer un personnage" />
       </form>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">

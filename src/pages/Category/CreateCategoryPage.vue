@@ -1,13 +1,13 @@
 <template>
   <div>
     <h1>Créer une catégorie</h1>
-    <LoadingComponent v-model="isLoaded">
+    <loading-component v-model="isLoaded">
       <form @submit.prevent="handleSubmit">
         <label for="name">Nom de catégorie</label>
         <input id="name" v-model="formData.name" type="text" placeholder="Nom de catégorie" />
         <input type="submit" value="Créer une catégorie" />
       </form>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">

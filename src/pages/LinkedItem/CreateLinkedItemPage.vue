@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Créer un objet lié</h1>
-    <LoadingComponent v-model="isLoaded">
+    <loading-component v-model="isLoaded">
       <form @submit.prevent="handleSubmit">
         <label for="playableItem">Objet jouable</label>
         <select id="playableItem" v-model="formData.playableItemId">
@@ -19,7 +19,7 @@
         </select>
         <input type="submit" value="Créer un objet lié" />
       </form>
-    </LoadingComponent>
+    </loading-component>
   </div>
 </template>
 <script setup lang="ts">
